@@ -22,7 +22,6 @@ const ChatIntro: React.FC = () => {
             key={index}
             message={message.text}
             delay={message.delay}
-            sender={index % 2 === 0 ? 'me' : 'other'}
           />
         ))}
       </div>

@@ -20,6 +20,10 @@ import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
 import ChatIntro from '../components/ChatIntro';
+import Experience from '../components/Experience';
+import Awards from '../components/Awards';
+import Education from '../components/Education';
+import Certifications from '../components/Certifications';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -38,26 +42,26 @@ const Home: React.FC = () => {
       { name: 'Express', icon: <Cpu className="w-4 h-4" /> },
       { name: 'Python', icon: <Binary className="w-4 h-4" /> },
       { name: 'FastAPI', icon: <Braces className="w-4 h-4" /> },
-      { name: 'GraphQL', icon: <Code2 className="w-4 h-4" /> }
+      { name: 'GraphQL', icon: <Code2 className="w-4 h-4" /> },
+      { name: 'Django', icon: <Code2 className="w-4 h-4" /> }
     ],
     database: [
       { name: 'PostgreSQL', icon: <Database className="w-4 h-4" /> },
-      { name: 'MongoDB', icon: <Database className="w-4 h-4" /> },
       { name: 'Redis', icon: <Database className="w-4 h-4" /> },
-      { name: 'Prisma', icon: <Database className="w-4 h-4" /> }
+      { name: 'Prisma', icon: <Database className="w-4 h-4" /> },
+      { name: 'MySQL', icon: <Database className="w-4 h-4" /> }
     ],
     architecture: [
       { name: 'AWS', icon: <Cloud className="w-4 h-4" /> },
       { name: 'Docker', icon: <Container className="w-4 h-4" /> },
-      { name: 'Kubernetes', icon: <Container className="w-4 h-4" /> },
       { name: 'CI/CD', icon: <Binary className="w-4 h-4" /> },
-      { name: 'Microservices', icon: <Blocks className="w-4 h-4" /> }
     ],
     frameworks: [
-      { name: 'Jest', icon: <TestTube className="w-4 h-4" /> },
-      { name: 'React Testing Library', icon: <TestTube className="w-4 h-4" /> },
-      { name: 'Cypress', icon: <TestTube className="w-4 h-4" /> },
-      { name: 'Storybook', icon: <Blocks className="w-4 h-4" /> }
+      { name: 'React', icon: <Blocks className="w-4 h-4" /> },
+      { name: 'TypeScript', icon: <FileJson className="w-4 h-4" /> },
+      { name: 'Next.js', icon: <Binary className="w-4 h-4" /> },
+      { name: 'Tailwind CSS', icon: <LayoutTemplate className="w-4 h-4" /> },
+      { name: 'SCSS', icon: <Code2 className="w-4 h-4" /> }
     ]
   };
 
@@ -120,6 +124,18 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* Experience Section */}
+      <Experience />
+
+      {/* Awards Section */}
+      <Awards />
+
+      {/* Education Section */}
+      <Education />
+
+      {/* Certifications Section */}
+      <Certifications />
 
       {/* Featured Projects Section */}
       <section id="projects" className="py-20">

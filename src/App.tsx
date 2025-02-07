@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Sun, Moon, Languages } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
+import { useTheme } from './contexts/ThemeContext';
 import Home from './pages/Home';
 import './styles/main.scss';
 
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const { toggleLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const sections = ['home', 'skills', 'experience', 'projects'];
   
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.body.className = savedTheme;
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
-      document.body.className = prefersDark ? 'dark' : 'light';
-    }
-  }, []);
-
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -53,13 +42,6 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.body.className = newTheme;
-    localStorage.setItem('theme', newTheme);
-  };
-
   const handleProgressClick = (section: string) => {
     const element = document.getElementById(section);
     if (element) {
@@ -68,7 +50,7 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen ${theme}`}>
+    <div className="min-h-screen">
       {/* Theme and Language Toggles */}
       <div className="fixed top-4 right-4 flex items-center space-x-4 z-50">
         <button

@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 type Language = 'ko' | 'en';
 
 interface LanguageContextType {
-  language: Language;
+  currentLanguage: Language;
   toggleLanguage: () => void;
   t: (key: string) => string;
 }
@@ -33,12 +33,13 @@ const translations = {
     'skills.database': '데이터베이스',
     'skills.architecture': '아키텍처',
     'skills.testing': '테스팅',
+    'skills.frameworks': '프레임워크',
     
     // Experience Section
     'experience.title': '경력',
-    'experience.senior.title': '시니어 개발자',
-    'experience.senior.company': '테크 기업',
-    'experience.senior.period': '2020 - 현재',
+    'experience.senior.title': '풀스택 개발자',
+    'experience.senior.company': '(주)에이아이네이션',
+    'experience.senior.period': '2024.10 - 현재',
     'experience.senior.description': 'React와 Node.js를 활용한 웹 애플리케이션 개발 리드',
     'experience.fullstack.title': '풀스택 개발자',
     'experience.fullstack.company': '디지털 솔루션즈',
@@ -144,18 +145,18 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('ko');
+  const [currentLanguage, setCurrentLanguage] = useState<Language>('ko');
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'ko' ? 'en' : 'ko');
+    setCurrentLanguage(prev => prev === 'ko' ? 'en' : 'ko');
   };
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations['ko']] || key;
+    return translations[currentLanguage][key as keyof typeof translations['ko']] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ currentLanguage, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
