@@ -101,6 +101,11 @@ body {
   box-shadow: 0 4px 6px var(--shadow-color);
   backdrop-filter: blur(8px);
   
+  // 모바일 화면에서 숨김
+  @media (max-width: 768px) {
+    display: none;
+  }
+  
   .progress-item {
     position: relative;
     width: 3px;
@@ -177,14 +182,46 @@ body {
 // Message styles
 .message-window {
   background: var(--bg-secondary);
+  max-width: 42rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow-color);
   
   .window-header {
     background: var(--bg-tertiary);
     color: var(--text-primary);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
   }
   
   .window-content {
     background: var(--bg-secondary);
+    padding: 1.5rem;
+    min-height: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+
+    /* 스크롤바 스타일링 */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+      
+      &:hover {
+        background: var(--text-secondary);
+      }
+    }
   }
 }
 
@@ -195,7 +232,10 @@ body {
   color: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
-  padding-bottom: 2px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  max-width: 85%;
+  margin-left: auto;
   
   // iOS 스타일 말풍선 모서리 처리
   border-bottom-right-radius: 0.3rem;
@@ -227,6 +267,11 @@ body {
   // 텍스트 선택 스타일
   ::selection {
     background: rgba(255, 255, 255, 0.3);
+  }
+
+  // 마지막 메시지는 아래 여백 제거
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

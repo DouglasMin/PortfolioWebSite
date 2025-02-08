@@ -3,6 +3,7 @@ import { Sun, Moon, Languages } from 'lucide-react';
 import { useLanguage } from './contexts/LanguageContext';
 import { useTheme } from './contexts/ThemeContext';
 import Home from './pages/Home';
+import LikeVisitCounter from './components/LikeVisitCounter';
 import './styles/main.scss';
 
 type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
@@ -91,6 +92,9 @@ function App() {
       <main>
         <Home />
       </main>
+
+      {/* Like and Visit Counter */}
+      <LikeVisitCounter />
     </div>
   );
 }

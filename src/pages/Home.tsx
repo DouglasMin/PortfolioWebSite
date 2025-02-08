@@ -2,19 +2,29 @@ import React from 'react';
 import { 
   ArrowRight, 
   Github, 
-  Blocks, 
-  Database, 
-  Cloud, 
-  Braces, 
-  FileJson, 
-  Cpu, 
-  LayoutTemplate,
-  Server,
-  Binary,
-  Container,
-  TestTube,
-  Code2
+  Instagram,
+  Linkedin
 } from 'lucide-react';
+import { 
+  SiReact, 
+  SiTypescript, 
+  SiNextdotjs, 
+  SiTailwindcss, 
+  SiSass, 
+  SiNodedotjs, 
+  SiExpress, 
+  SiPython, 
+  SiFastapi, 
+  SiGraphql, 
+  SiDjango,
+  SiPostgresql,
+  SiRedis,
+  SiPrisma,
+  SiMysql,
+  SiAmazonwebservices,
+  SiDocker,
+  SiGithubactions
+} from 'react-icons/si';
 import { useLanguage } from '../contexts/LanguageContext';
 import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
@@ -38,37 +48,37 @@ const Home: React.FC = () => {
 
   const techStack: Record<SkillSection, TechItem[]> = {
     frontend: [
-      { name: 'React', icon: <Blocks className="w-4 h-4" /> },
-      { name: 'TypeScript', icon: <FileJson className="w-4 h-4" /> },
-      { name: 'Next.js', icon: <Binary className="w-4 h-4" /> },
-      { name: 'Tailwind CSS', icon: <LayoutTemplate className="w-4 h-4" /> },
-      { name: 'SCSS', icon: <Code2 className="w-4 h-4" /> }
+      { name: 'React', icon: <SiReact className="w-5 h-5 text-[#61DAFB]" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" /> },
+      { name: 'Next.js', icon: <SiNextdotjs className="w-5 h-5 text-[#000000] dark:text-white" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" /> },
+      { name: 'SCSS', icon: <SiSass className="w-5 h-5 text-[#CC6699]" /> }
     ],
     backend: [
-      { name: 'Node.js', icon: <Server className="w-4 h-4" /> },
-      { name: 'Express', icon: <Cpu className="w-4 h-4" /> },
-      { name: 'Python', icon: <Binary className="w-4 h-4" /> },
-      { name: 'FastAPI', icon: <Braces className="w-4 h-4" /> },
-      { name: 'GraphQL', icon: <Code2 className="w-4 h-4" /> },
-      { name: 'Django', icon: <Code2 className="w-4 h-4" /> }
+      { name: 'Node.js', icon: <SiNodedotjs className="w-5 h-5 text-[#339933]" /> },
+      { name: 'Express', icon: <SiExpress className="w-5 h-5 text-[#000000] dark:text-white" /> },
+      { name: 'Python', icon: <SiPython className="w-5 h-5 text-[#3776AB]" /> },
+      { name: 'FastAPI', icon: <SiFastapi className="w-5 h-5 text-[#009688]" /> },
+      { name: 'GraphQL', icon: <SiGraphql className="w-5 h-5 text-[#E10098]" /> },
+      { name: 'Django', icon: <SiDjango className="w-5 h-5 text-[#092E20]" /> }
     ],
     database: [
-      { name: 'PostgreSQL', icon: <Database className="w-4 h-4" /> },
-      { name: 'Redis', icon: <Database className="w-4 h-4" /> },
-      { name: 'Prisma', icon: <Database className="w-4 h-4" /> },
-      { name: 'MySQL', icon: <Database className="w-4 h-4" /> }
+      { name: 'PostgreSQL', icon: <SiPostgresql className="w-5 h-5 text-[#4169E1]" /> },
+      { name: 'Redis', icon: <SiRedis className="w-5 h-5 text-[#DC382D]" /> },
+      { name: 'Prisma', icon: <SiPrisma className="w-5 h-5 text-[#2D3748]" /> },
+      { name: 'MySQL', icon: <SiMysql className="w-5 h-5 text-[#4479A1]" /> }
     ],
     architecture: [
-      { name: 'AWS', icon: <Cloud className="w-4 h-4" /> },
-      { name: 'Docker', icon: <Container className="w-4 h-4" /> },
-      { name: 'CI/CD', icon: <Binary className="w-4 h-4" /> },
+      { name: 'AWS', icon: <SiAmazonwebservices className="w-5 h-5 text-[#FF9900]" /> },
+      { name: 'Docker', icon: <SiDocker className="w-5 h-5 text-[#2496ED]" /> },
+      { name: 'CI/CD', icon: <SiGithubactions className="w-5 h-5 text-[#2088FF]" /> }
     ],
     frameworks: [
-      { name: 'React', icon: <Blocks className="w-4 h-4" /> },
-      { name: 'TypeScript', icon: <FileJson className="w-4 h-4" /> },
-      { name: 'Next.js', icon: <Binary className="w-4 h-4" /> },
-      { name: 'Tailwind CSS', icon: <LayoutTemplate className="w-4 h-4" /> },
-      { name: 'SCSS', icon: <Code2 className="w-4 h-4" /> }
+      { name: 'React', icon: <SiReact className="w-5 h-5 text-[#61DAFB]" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" /> },
+      { name: 'Next.js', icon: <SiNextdotjs className="w-5 h-5 text-[#000000] dark:text-white" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" /> },
+      { name: 'SCSS', icon: <SiSass className="w-5 h-5 text-[#CC6699]" /> }
     ]
   };
 
@@ -90,12 +100,28 @@ const Home: React.FC = () => {
               {t('hero.viewProjects')} <ArrowRight className="ml-2 w-5 h-5" />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/DouglasMin"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900"
             >
               <Github className="mr-2 w-5 h-5" /> GitHub
+            </a>
+            <a
+              href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-lg hover:opacity-90"
+            >
+              <Instagram className="mr-2 w-5 h-5" /> Instagram
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dongik-min-b8976a273/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-[#0077B5] text-white rounded-lg hover:opacity-90"
+            >
+              <Linkedin className="mr-2 w-5 h-5" /> LinkedIn
             </a>
           </div>
         </ScrollReveal>
@@ -111,11 +137,11 @@ const Home: React.FC = () => {
             <ScrollReveal key={key}>
               <div className="skill-card">
                 <div className="flex items-center mb-4">
-                  {key === 'frontend' && <Blocks className="w-8 h-8 text-[#FF6B6B] mr-3" />}
-                  {key === 'backend' && <Server className="w-8 h-8 text-[#4ECDC4] mr-3" />}
-                  {key === 'database' && <Database className="w-8 h-8 text-[#FFD93D] mr-3" />}
-                  {key === 'architecture' && <Cloud className="w-8 h-8 text-[#FF6B6B] mr-3" />}
-                  {key === 'frameworks' && <TestTube className="w-8 h-8 text-[#4ECDC4] mr-3" />}
+                  {key === 'frontend' && <SiReact className="w-8 h-8 text-[#61DAFB] mr-3" />}
+                  {key === 'backend' && <SiNodedotjs className="w-8 h-8 text-[#339933] mr-3" />}
+                  {key === 'database' && <SiPostgresql className="w-8 h-8 text-[#4169E1] mr-3" />}
+                  {key === 'architecture' && <SiAmazonwebservices className="w-8 h-8 text-[#FF9900] mr-3" />}
+                  {key === 'frameworks' && <SiReact className="w-8 h-8 text-[#61DAFB] mr-3" />}
                   <h3 className="text-xl font-bold gradient-1">{t(`skills.${key}` as const)}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">

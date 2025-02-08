@@ -96,8 +96,8 @@ const translations: Record<Language, TranslationRecord> = {
     'intro.greeting': '안녕하세요 👋',
     'intro.name': '저는 민동익입니다',
     'intro.welcome': '제 포트폴리오에 오신 것을 환영합니다',
-    'intro.role': '저는 풀스택 개발자이며 새로운 기술을 탐구하는 것을 좋아합니다',
-    'intro.passion': '사용자 경험을 개선하고 혁신적인 솔루션을 만드는 것이 제 열정입니다'
+    'intro.role': '풀스택 개발자이자 클라우드 네이티브 엔지니어입니다',
+    'intro.passion': '최신 기술 기반의 혁신적인 서비스 구축에 열정이 있습니다'
   },
   en: {
     // Navigation
@@ -147,8 +147,8 @@ const translations: Record<Language, TranslationRecord> = {
     'intro.greeting': 'Hi there 👋',
     'intro.name': "I'm Dongik Min",
     'intro.welcome': 'Welcome to my portfolio',
-    'intro.role': "I'm a Full Stack Developer who loves exploring new technologies",
-    'intro.passion': 'My passion is creating innovative solutions and improving user experiences'
+    'intro.role': 'Full Stack Developer & Cloud Native Engineer',
+    'intro.passion': 'Passionate about building innovative services with cutting-edge technologies'
   }
 };
 
