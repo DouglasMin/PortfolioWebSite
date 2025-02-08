@@ -15,7 +15,7 @@ const ChatIntro: React.FC = () => {
   ];
 
   return (
-    <MacWindow title="Portfolio Messages">
+    <MacWindow title="Welcome">
       <div className="space-y-4">
         {messages.map((message, index) => (
           <MessageBubble

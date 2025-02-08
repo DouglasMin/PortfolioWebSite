@@ -15,10 +15,13 @@ const Header: React.FC = () => {
           </Link>
           
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-blue-600">{t('nav.home')}</Link>
-            <Link to="/projects" className="text-gray-700 hover:text-blue-600">{t('nav.projects')}</Link>
-            <Link to="/about" className="text-gray-700 hover:text-blue-600">{t('nav.about')}</Link>
-            <Link to="/contact" className="text-gray-700 hover:text-blue-600">{t('nav.contact')}</Link>
+            <Link to="/#home" className="text-gray-700 hover:text-blue-600">{t('nav.home')}</Link>
+            <Link to="/#skills" className="text-gray-700 hover:text-blue-600">{t('nav.skills')}</Link>
+            <Link to="/#experience" className="text-gray-700 hover:text-blue-600">{t('nav.experience')}</Link>
+            <Link to="/#awards" className="text-gray-700 hover:text-blue-600">{t('nav.awards')}</Link>
+            <Link to="/#education" className="text-gray-700 hover:text-blue-600">{t('nav.education')}</Link>
+            <Link to="/#certifications" className="text-gray-700 hover:text-blue-600">{t('nav.certifications')}</Link>
+            <Link to="/#projects" className="text-gray-700 hover:text-blue-600">{t('nav.projects')}</Link>
           </nav>
 
           <div className="flex items-center space-x-4">

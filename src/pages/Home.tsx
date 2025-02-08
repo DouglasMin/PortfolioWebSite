@@ -25,11 +25,18 @@ import Awards from '../components/Awards';
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
 
+type SkillSection = 'frontend' | 'backend' | 'database' | 'architecture' | 'frameworks';
+
+interface TechItem {
+  name: string;
+  icon: JSX.Element;
+}
+
 const Home: React.FC = () => {
   const { t } = useLanguage();
   const featuredProjects = projects.filter(project => project.featured);
 
-  const techStack = {
+  const techStack: Record<SkillSection, TechItem[]> = {
     frontend: [
       { name: 'React', icon: <Blocks className="w-4 h-4" /> },
       { name: 'TypeScript', icon: <FileJson className="w-4 h-4" /> },
@@ -100,7 +107,7 @@ const Home: React.FC = () => {
           <h2 className="text-4xl font-bold text-center mb-12 gradient-2">{t('skills.title')}</h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {Object.entries(techStack).map(([key, technologies]) => (
+          {(Object.entries(techStack) as [SkillSection, TechItem[]][]).map(([key, technologies]) => (
             <ScrollReveal key={key}>
               <div className="skill-card">
                 <div className="flex items-center mb-4">
@@ -109,7 +116,7 @@ const Home: React.FC = () => {
                   {key === 'database' && <Database className="w-8 h-8 text-[#FFD93D] mr-3" />}
                   {key === 'architecture' && <Cloud className="w-8 h-8 text-[#FF6B6B] mr-3" />}
                   {key === 'frameworks' && <TestTube className="w-8 h-8 text-[#4ECDC4] mr-3" />}
-                  <h3 className="text-xl font-bold gradient-1">{t(`skills.${key}`)}</h3>
+                  <h3 className="text-xl font-bold gradient-1">{t(`skills.${key}` as const)}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((tech) => (

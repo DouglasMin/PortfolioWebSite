@@ -94,21 +94,21 @@ body {
   z-index: 50;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  padding: 1rem;
-  border-radius: 20px;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 1rem;
   background: var(--bg-secondary);
   box-shadow: 0 4px 6px var(--shadow-color);
-  
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   
   .progress-item {
     position: relative;
-    width: 4px;
-    height: 100px;
+    width: 3px;
+    height: 40px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: var(--border-color);
+    border-radius: 1.5px;
     
     &::before {
       content: '';
@@ -119,6 +119,7 @@ body {
       height: 0;
       background: linear-gradient(to bottom, #FF6B6B, #4ECDC4);
       transition: height 0.5s ease;
+      border-radius: 1.5px;
     }
     
     &.active::before {
@@ -132,21 +133,30 @@ body {
       right: 12px;
       top: 50%;
       transform: translateY(-50%);
-      padding: 0.5rem 0.75rem;
-      font-size: 0.875rem;
-      border-radius: 4px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border-radius: 0.5rem;
       white-space: nowrap;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
       background: var(--bg-tertiary);
       color: var(--text-primary);
+      box-shadow: 0 2px 4px var(--shadow-color);
     }
     
     &:hover::after {
       opacity: 1;
       visibility: visible;
-      right: 24px;
+      right: 20px;
+    }
+
+    // Hover effect for the bar
+    &:hover {
+      width: 5px;
+      background: var(--text-secondary);
     }
   }
 }

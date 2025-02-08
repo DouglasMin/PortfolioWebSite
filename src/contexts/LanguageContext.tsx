@@ -2,23 +2,65 @@ import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'ko' | 'en';
 
+// 네비게이션 섹션에 있는 모든 가능한 값들을 유니온 타입으로 정의
+type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
+
+// 모든 가능한 번역 키를 정의
+type TranslationKey = 
+  | `nav.${NavSection}`
+  | 'hero.greeting'
+  | 'hero.name'
+  | 'hero.role.1'
+  | 'hero.role.2'
+  | 'hero.role.3'
+  | 'hero.role.4'
+  | 'hero.description'
+  | 'hero.viewProjects'
+  | 'skills.title'
+  | 'skills.frontend'
+  | 'skills.backend'
+  | 'skills.database'
+  | 'skills.architecture'
+  | 'skills.testing'
+  | 'skills.frameworks'
+  | 'experience.title'
+  | 'experience.senior.title'
+  | 'experience.senior.company'
+  | 'experience.senior.period'
+  | 'experience.senior.description'
+  | 'projects.title'
+  | 'projects.viewCode'
+  | 'projects.viewDemo'
+  | 'lang.toggle'
+  | 'intro.greeting'
+  | 'intro.name'
+  | 'intro.welcome'
+  | 'intro.role'
+  | 'intro.passion';
+
+// 번역 객체의 타입을 정의
+type TranslationRecord = Record<TranslationKey, string>;
+
 interface LanguageContextType {
   currentLanguage: Language;
   toggleLanguage: () => void;
-  t: (key: string) => string;
+  t: (key: TranslationKey) => string;
 }
 
-const translations = {
+const translations: Record<Language, TranslationRecord> = {
   ko: {
     // Navigation
     'nav.home': '홈',
+    'nav.skills': '기술 스택',
+    'nav.experience': '경력',
+    'nav.awards': '수상 내역',
+    'nav.education': '학력',
+    'nav.certifications': '자격증',
     'nav.projects': '프로젝트',
-    'nav.about': '소개',
-    'nav.contact': '연락처',
     
     // Hero Section
-    'hero.greeting': '안녕하세요',
-    'hero.name': '저는 홍길동입니다',
+    'hero.greeting': '안녕하세요 👋',
+    'hero.name': '저는 민동익입니다',
     'hero.role.1': '풀스택 개발자입니다',
     'hero.role.2': '데브옵스 엔지니어입니다',
     'hero.role.3': '클라우드 아키텍트입니다',
@@ -40,30 +82,12 @@ const translations = {
     'experience.senior.title': '풀스택 개발자',
     'experience.senior.company': '(주)에이아이네이션',
     'experience.senior.period': '2024.10 - 현재',
-    'experience.senior.description': 'React와 Node.js를 활용한 웹 애플리케이션 개발 리드',
-    'experience.fullstack.title': '풀스택 개발자',
-    'experience.fullstack.company': '디지털 솔루션즈',
-    'experience.fullstack.period': '2018 - 2020',
-    'experience.fullstack.description': '다양한 클라이언트 프로젝트 개발 및 유지보수',
-    'experience.junior.title': '주니어 개발자',
-    'experience.junior.company': '첫 회사',
-    'experience.junior.period': '2016 - 2018',
-    'experience.junior.description': '반응형 웹사이트 개발',
+    'experience.senior.description': 'React와 Node.js를 활용한 웹 애플리케이션 개발',
     
     // Projects Section
     'projects.title': '주요 프로젝트',
     'projects.viewCode': '코드 보기',
     'projects.viewDemo': '데모 보기',
-    
-    // Contact Section
-    'contact.title': '연락하기',
-    'contact.info': '연락처 정보',
-    'contact.name': '이름',
-    'contact.email': '이메일',
-    'contact.message': '메시지',
-    'contact.send': '메시지 보내기',
-    'contact.connect': '연결하기',
-    'contact.description': '새로운 기회와 협업에 관심이 있습니다. 연락 주세요!',
     
     // Language Toggle
     'lang.toggle': '한/영',
@@ -78,13 +102,16 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
+    'nav.skills': 'Skills',
+    'nav.experience': 'Experience',
+    'nav.awards': 'Awards',
+    'nav.education': 'Education',
+    'nav.certifications': 'Certifications',
     'nav.projects': 'Projects',
-    'nav.about': 'About',
-    'nav.contact': 'Contact',
     
     // Hero Section
-    'hero.greeting': 'Hi',
-    'hero.name': "I'm John Doe",
+    'hero.greeting': 'Hi there 👋',
+    'hero.name': "I'm Dongik (Douglas) Min",
     'hero.role.1': 'I am a Full Stack Developer',
     'hero.role.2': 'I am a DevOps Engineer',
     'hero.role.3': 'I am a Cloud Architect',
@@ -99,36 +126,19 @@ const translations = {
     'skills.database': 'Database',
     'skills.architecture': 'Architecture',
     'skills.testing': 'Testing',
+    'skills.frameworks': 'Frameworks',
     
     // Experience Section
     'experience.title': 'Experience',
-    'experience.senior.title': 'Senior Developer',
-    'experience.senior.company': 'Tech Corp',
-    'experience.senior.period': '2020 - Present',
-    'experience.senior.description': 'Led development of web applications using React and Node.js',
-    'experience.fullstack.title': 'Full Stack Developer',
-    'experience.fullstack.company': 'Digital Solutions',
-    'experience.fullstack.period': '2018 - 2020',
-    'experience.fullstack.description': 'Developed and maintained various client projects',
-    'experience.junior.title': 'Junior Developer',
-    'experience.junior.company': 'First Company',
-    'experience.junior.period': '2016 - 2018',
-    'experience.junior.description': 'Built responsive websites',
+    'experience.senior.title': 'Full Stack Developer',
+    'experience.senior.company': 'AINation Inc.',
+    'experience.senior.period': '2024.10 - Present',
+    'experience.senior.description': 'Web application development using React and Node.js',
     
     // Projects Section
     'projects.title': 'Featured Projects',
     'projects.viewCode': 'View Code',
     'projects.viewDemo': 'Live Demo',
-    
-    // Contact Section
-    'contact.title': 'Get in Touch',
-    'contact.info': 'Contact Information',
-    'contact.name': 'Name',
-    'contact.email': 'Email',
-    'contact.message': 'Message',
-    'contact.send': 'Send Message',
-    'contact.connect': 'Connect with me',
-    'contact.description': "I'm always interested in new opportunities and collaborations. Feel free to reach out!",
     
     // Language Toggle
     'lang.toggle': 'KO/EN',
@@ -151,8 +161,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setCurrentLanguage(prev => prev === 'ko' ? 'en' : 'ko');
   };
 
-  const t = (key: string): string => {
-    return translations[currentLanguage][key as keyof typeof translations['ko']] || key;
+  const t = (key: TranslationKey): string => {
+    return translations[currentLanguage][key] || key;
   };
 
   return (

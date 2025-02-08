@@ -5,10 +5,12 @@ import { useTheme } from './contexts/ThemeContext';
 import Home from './pages/Home';
 import './styles/main.scss';
 
+type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
+
 function App() {
   const { toggleLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
-  const sections = ['home', 'skills', 'experience', 'projects'];
+  const sections: NavSection[] = ['home', 'skills', 'experience', 'awards', 'education', 'certifications', 'projects'];
   
   useEffect(() => {
     const observerOptions = {
@@ -42,7 +44,7 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  const handleProgressClick = (section: string) => {
+  const handleProgressClick = (section: NavSection) => {
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
