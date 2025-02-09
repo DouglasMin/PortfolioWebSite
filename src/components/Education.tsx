@@ -26,8 +26,8 @@ const Education: React.FC = () => {
       },
       period: '2021.03 - 2025.02',
       description: {
-        ko: '공로상 수상, 중소벤처기업부 장관상 수상',
-        en: 'Excellence Award, Minister of SMEs Award'
+        ko: '공로상 수상',
+        en: 'Excellence Award'
       }
     }
   ];

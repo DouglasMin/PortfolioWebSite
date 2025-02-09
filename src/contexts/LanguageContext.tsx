@@ -24,10 +24,14 @@ type TranslationKey =
   | 'skills.testing'
   | 'skills.frameworks'
   | 'experience.title'
-  | 'experience.senior.title'
-  | 'experience.senior.company'
-  | 'experience.senior.period'
-  | 'experience.senior.description'
+  | 'experience.junior.title'
+  | 'experience.junior.company'
+  | 'experience.junior.period'
+  | 'experience.junior.description'
+  | 'experience.intern.title'
+  | 'experience.intern.company'
+  | 'experience.intern.period'
+  | 'experience.intern.description'
   | 'projects.title'
   | 'projects.viewCode'
   | 'projects.viewDemo'
@@ -79,10 +83,14 @@ const translations: Record<Language, TranslationRecord> = {
     
     // Experience Section
     'experience.title': '경력',
-    'experience.senior.title': '풀스택 개발자',
-    'experience.senior.company': '(주)에이아이네이션',
-    'experience.senior.period': '2024.10 - 현재',
-    'experience.senior.description': 'React와 Node.js를 활용한 웹 애플리케이션 개발',
+    'experience.junior.title': '풀스택 개발자',
+    'experience.junior.company': '(주)에이아이네이션',
+    'experience.junior.period': '2024.10 - 현재',
+    'experience.junior.description': '-',
+    'experience.intern.title': '프로덕트 - 개발팀 (인턴)',
+    'experience.intern.company': '(주)하이어다이버시티',
+    'experience.intern.period': '2024.06 - 2024.08',
+    'experience.intern.description': '클라우드 네이티브 환경에서 AI 비자 사진 판독 시스템 구축',
     
     // Projects Section
     'projects.title': '주요 프로젝트',
@@ -130,10 +138,14 @@ const translations: Record<Language, TranslationRecord> = {
     
     // Experience Section
     'experience.title': 'Experience',
-    'experience.senior.title': 'Full Stack Developer',
-    'experience.senior.company': 'AINation Inc.',
-    'experience.senior.period': '2024.10 - Present',
-    'experience.senior.description': 'Web application development using React and Node.js',
+    'experience.junior.title': 'Full Stack Developer',
+    'experience.junior.company': 'AINation Inc.',
+    'experience.junior.period': '2024.10 - Present',
+    'experience.junior.description': 'Web application development using React and Node.js',
+    'experience.intern.title': 'Product - Development Team (Intern)',
+    'experience.intern.company': 'Higher Diversity',
+    'experience.intern.period': '2024.06 - 2024.08',
+    'experience.intern.description': 'Building an AI visa photo recognition system in a cloud native environment',
     
     // Projects Section
     'projects.title': 'Featured Projects',

@@ -26,37 +26,36 @@ const Certifications: React.FC = () => {
         ko: '아마존 웹 서비스',
         en: 'Amazon Web Services'
       },
-      date: '2023.08',
-      credentialId: 'AWS-ASA-123456',
+      date: '2024.12',
       url: 'https://aws.amazon.com/verification'
     }
   ];
 
   return (
-    <section id="certifications" className="py-20">
+    <section id="certifications" className="py-12 sm:py-20">
       <ScrollReveal>
-        <h2 className="text-4xl font-bold text-center mb-12 gradient-3">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-3">
           {currentLanguage === 'ko' ? '자격증' : 'Certifications'}
         </h2>
       </ScrollReveal>
 
-      <div className="max-w-4xl mx-auto px-4 grid md:grid-cols-2 gap-6">
+      <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {certifications.map((cert, index) => (
           <ScrollReveal key={index} delay={index * 200}>
-            <div className="p-6 rounded-lg bg-[var(--bg-secondary)] hover:transform hover:-translate-y-1 transition-transform duration-300 shadow-lg">
+            <div className="p-4 sm:p-6 rounded-lg bg-[var(--bg-secondary)] hover:transform hover:-translate-y-1 transition-transform duration-300 shadow-lg">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2 gradient-1">{cert.name[currentLanguage]}</h3>
-                  <p className="text-[var(--text-secondary)] font-medium mb-1">{cert.issuer[currentLanguage]}</p>
-                  <p className="text-sm text-[var(--text-secondary)] mb-2">{cert.date}</p>
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 gradient-1">{cert.name[currentLanguage]}</h3>
+                  <p className="text-[var(--text-secondary)] font-medium mb-1 text-sm sm:text-base">{cert.issuer[currentLanguage]}</p>
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] mb-2">{cert.date}</p>
                   {cert.credentialId && (
-                    <p className="text-sm text-[var(--text-secondary)]">
+                    <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
                       ID: {cert.credentialId}
                     </p>
                   )}
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Award className="w-6 h-6 text-[#4ECDC4]" />
+                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-[#4ECDC4]" />
                   {cert.url && (
                     <a
                       href={cert.url}
@@ -64,7 +63,7 @@ const Certifications: React.FC = () => {
                       rel="noopener noreferrer"
                       className="text-[#4ECDC4] hover:text-[#45b8b0] transition-colors"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                     </a>
                   )}
                 </div>

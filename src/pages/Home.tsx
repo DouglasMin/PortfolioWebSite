@@ -83,70 +83,72 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Hero Section */}
-      <section id="home" className="text-center py-20">
+      <section id="home" className="text-center py-12 sm:py-20">
         <ScrollReveal>
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <img
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
-              alt="Profile"
-              className="w-32 h-32 rounded-full mx-auto border-4 border-gradient-1 shadow-lg"
+              src="/01.jpg"
+              alt="Dongik Min Profile"
+              className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto border-4 border-gradient-1 shadow-lg object-cover"
             />
           </div>
           <ChatIntro />
-          <div className="flex justify-center space-x-4 mt-12">
-            <a href="#projects" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white rounded-lg hover:opacity-90 transition-opacity">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 sm:mt-12">
+            <a href="#projects" className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white rounded-lg hover:opacity-90 transition-opacity">
               {t('hero.viewProjects')} <ArrowRight className="ml-2 w-5 h-5" />
             </a>
-            <a
-              href="https://github.com/DouglasMin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900"
-            >
-              <Github className="mr-2 w-5 h-5" /> GitHub
-            </a>
-            <a
-              href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-lg hover:opacity-90"
-            >
-              <Instagram className="mr-2 w-5 h-5" /> Instagram
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dongik-min-b8976a273/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-[#0077B5] text-white rounded-lg hover:opacity-90"
-            >
-              <Linkedin className="mr-2 w-5 h-5" /> LinkedIn
-            </a>
+            <div className="flex flex-row sm:flex-row gap-4 w-full sm:w-auto justify-center">
+              <a
+                href="https://github.com/DouglasMin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900"
+              >
+                <Github className="mr-2 w-5 h-5" /> GitHub
+              </a>
+              <a
+                href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-lg hover:opacity-90"
+              >
+                <Instagram className="mr-2 w-5 h-5" /> Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dongik-min-b8976a273/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-[#0077B5] text-white rounded-lg hover:opacity-90"
+              >
+                <Linkedin className="mr-2 w-5 h-5" /> LinkedIn
+              </a>
+            </div>
           </div>
         </ScrollReveal>
       </section>
 
       {/* Tech Stack Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className="py-12 sm:py-20">
         <ScrollReveal>
-          <h2 className="text-4xl font-bold text-center mb-12 gradient-2">{t('skills.title')}</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-2">{t('skills.title')}</h2>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {(Object.entries(techStack) as [SkillSection, TechItem[]][]).map(([key, technologies]) => (
             <ScrollReveal key={key}>
-              <div className="skill-card">
+              <div className="skill-card p-4 sm:p-6">
                 <div className="flex items-center mb-4">
-                  {key === 'frontend' && <SiReact className="w-8 h-8 text-[#61DAFB] mr-3" />}
-                  {key === 'backend' && <SiNodedotjs className="w-8 h-8 text-[#339933] mr-3" />}
-                  {key === 'database' && <SiPostgresql className="w-8 h-8 text-[#4169E1] mr-3" />}
-                  {key === 'architecture' && <SiAmazonwebservices className="w-8 h-8 text-[#FF9900] mr-3" />}
-                  {key === 'frameworks' && <SiReact className="w-8 h-8 text-[#61DAFB] mr-3" />}
-                  <h3 className="text-xl font-bold gradient-1">{t(`skills.${key}` as const)}</h3>
+                  {key === 'frontend' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3" />}
+                  {key === 'backend' && <SiNodedotjs className="w-6 h-6 sm:w-8 sm:h-8 text-[#339933] mr-3" />}
+                  {key === 'database' && <SiPostgresql className="w-6 h-6 sm:w-8 sm:h-8 text-[#4169E1] mr-3" />}
+                  {key === 'architecture' && <SiAmazonwebservices className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF9900] mr-3" />}
+                  {key === 'frameworks' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3" />}
+                  <h3 className="text-lg sm:text-xl font-bold gradient-1">{t(`skills.${key}` as const)}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((tech) => (
-                    <span key={tech.name} className="tech-tag flex items-center gap-1">
+                    <span key={tech.name} className="tech-tag text-sm sm:text-base flex items-center gap-1">
                       {tech.icon}
                       {tech.name}
                     </span>
@@ -171,11 +173,11 @@ const Home: React.FC = () => {
       <Certifications />
 
       {/* Featured Projects Section */}
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-12 sm:py-20">
         <ScrollReveal>
-          <h2 className="text-4xl font-bold text-center mb-12 gradient-3">{t('projects.title')}</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-3">{t('projects.title')}</h2>
         </ScrollReveal>
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {featuredProjects.map((project) => (
             <ScrollReveal key={project.id}>
               <ProjectCard project={project} />
