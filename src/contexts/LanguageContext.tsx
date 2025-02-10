@@ -16,6 +16,7 @@ type TranslationKey =
   | 'hero.role.4'
   | 'hero.description'
   | 'hero.viewProjects'
+  | 'hero.resume'
   | 'skills.title'
   | 'skills.frontend'
   | 'skills.backend'
@@ -81,6 +82,7 @@ const translations: Record<Language, TranslationRecord> = {
     'hero.role.4': 'UI/UX 디자이너입니다',
     'hero.description': '새로운 기술과 도전을 사랑하는 개발자입니다',
     'hero.viewProjects': '프로젝트 보기',
+    'hero.resume': '이력서',
     
     // Skills Section
     'skills.title': '기술 스택',
@@ -146,6 +148,7 @@ const translations: Record<Language, TranslationRecord> = {
     'hero.role.4': 'I am a UI/UX Enthusiast',
     'hero.description': 'A developer who loves new technologies and challenges',
     'hero.viewProjects': 'View Projects',
+    'hero.resume': 'Resume',
     
     // Skills Section
     'skills.title': 'Tech Stack',
