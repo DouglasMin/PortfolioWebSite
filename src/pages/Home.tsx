@@ -96,33 +96,36 @@ const Home: React.FC = () => {
           </div>
           <ChatIntro />
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 sm:mt-12">
-            <a href="#projects" className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white rounded-lg hover:opacity-90 transition-opacity">
-              {t('hero.viewProjects')} <ArrowRight className="ml-2 w-5 h-5" />
+            <a href="#projects" className="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white rounded-lg hover:opacity-90 transition-opacity text-sm sm:text-base">
+              {t('hero.viewProjects')} <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </a>
-            <div className="flex flex-row sm:flex-row gap-4 w-full sm:w-auto justify-center">
+            <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
               <a
                 href="https://github.com/DouglasMin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 text-sm sm:text-base"
               >
-                <Github className="mr-2 w-5 h-5" /> GitHub
+                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="ml-2 hidden sm:inline">GitHub</span>
               </a>
               <a
                 href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-lg hover:opacity-90"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-lg hover:opacity-90 text-sm sm:text-base"
               >
-                <Instagram className="mr-2 w-5 h-5" /> Instagram
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="ml-2 hidden sm:inline">Instagram</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/dongik-min-b8976a273/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 bg-[#0077B5] text-white rounded-lg hover:opacity-90"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-[#0077B5] text-white rounded-lg hover:opacity-90 text-sm sm:text-base"
               >
-                <Linkedin className="mr-2 w-5 h-5" /> LinkedIn
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="ml-2 hidden sm:inline">LinkedIn</span>
               </a>
             </div>
           </div>
