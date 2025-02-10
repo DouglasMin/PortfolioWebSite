@@ -32,6 +32,16 @@ type TranslationKey =
   | 'experience.intern.company'
   | 'experience.intern.period'
   | 'experience.intern.description'
+  | 'experience.seah.title'
+  | 'experience.seah.company'
+  | 'experience.seah.period'
+  | 'experience.seah.description'
+  | 'experience.seah.role'
+  | 'experience.purdue.title'
+  | 'experience.purdue.company'
+  | 'experience.purdue.period'
+  | 'experience.purdue.description'
+  | 'experience.purdue.role'
   | 'projects.title'
   | 'projects.viewCode'
   | 'projects.viewDemo'
@@ -82,7 +92,7 @@ const translations: Record<Language, TranslationRecord> = {
     'skills.frameworks': '프레임워크',
     
     // Experience Section
-    'experience.title': '경력',
+    'experience.title': '경력 & 프로젝트',
     'experience.junior.title': '풀스택 개발자',
     'experience.junior.company': '(주)에이아이네이션',
     'experience.junior.period': '2024.10 - 현재',
@@ -91,6 +101,16 @@ const translations: Record<Language, TranslationRecord> = {
     'experience.intern.company': '(주)하이어다이버시티',
     'experience.intern.period': '2024.06 - 2024.08',
     'experience.intern.description': '클라우드 네이티브 환경에서 AI 비자 사진 판독 시스템 구축',
+    'experience.seah.title': '압연재 출하공정 AI 기반 관리 시스템',
+    'experience.seah.company': '세아베스틸',
+    'experience.seah.period': '2024.03 - 2024.06',
+    'experience.seah.role': 'PM, TeamLead',
+    'experience.seah.description': '대학-기업 연계 프로젝트로서 AI 기술을 활용하여 압연재 출하공정의 효율성을 극대화하는 시스템 개발. 실시간 데이터 분석과 예측 모델을 통해 공정 최적화 달성',
+    'experience.purdue.title': 'AI & UAV 기반 스마트 골프볼 회수 시스템',
+    'experience.purdue.company': '퍼듀대학교 (Purdue University)',
+    'experience.purdue.period': '2023.09 - 2024.01',
+    'experience.purdue.role': '연구원',
+    'experience.purdue.description': '드론과 AI 기술을 결합하여 골프장에서의 분실 골프공을 자동으로 탐지하고 수거하는 혁신적인 시스템 개발. 컴퓨터 비전과 딥러닝 알고리즘을 활용한 실시간 객체 인식 구현',
     
     // Projects Section
     'projects.title': '주요 프로젝트',
@@ -137,7 +157,7 @@ const translations: Record<Language, TranslationRecord> = {
     'skills.frameworks': 'Frameworks',
     
     // Experience Section
-    'experience.title': 'Experience',
+    'experience.title': 'Experience & Projects',
     'experience.junior.title': 'Full Stack Developer',
     'experience.junior.company': 'AINation Inc.',
     'experience.junior.period': '2024.10 - Present',
@@ -146,6 +166,16 @@ const translations: Record<Language, TranslationRecord> = {
     'experience.intern.company': 'Higher Diversity',
     'experience.intern.period': '2024.06 - 2024.08',
     'experience.intern.description': 'Building an AI visa photo recognition system in a cloud native environment',
+    'experience.seah.title': 'AI-based Rolling Stock Shipping Process Management System',
+    'experience.seah.company': 'SeAH Besteel',
+    'experience.seah.period': '2024.03 - 2024.06',
+    'experience.seah.role': 'PM, TeamLead',
+    'experience.seah.description': 'Developed an AI-powered system to maximize efficiency in rolling stock shipping processes as part of a university-industry collaboration project. Achieved process optimization through real-time data analysis and predictive modeling',
+    'experience.purdue.title': 'Smart Golf Ball Recovery System using AI & UAV',
+    'experience.purdue.company': 'Purdue University',
+    'experience.purdue.period': '2023.09 - 2024.01',
+    'experience.purdue.role': 'Researcher',
+    'experience.purdue.description': 'Developed an innovative system that combines drone technology and AI to automatically detect and collect lost golf balls on golf courses. Implemented real-time object detection using computer vision and deep learning algorithms',
     
     // Projects Section
     'projects.title': 'Featured Projects',

@@ -178,7 +178,7 @@ const Home: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-3">{t('projects.title')}</h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {featuredProjects.map((project) => (
+          {projects.filter(project => project.featured).map((project) => (
             <ScrollReveal key={project.id}>
               <ProjectCard project={project} />
             </ScrollReveal>
