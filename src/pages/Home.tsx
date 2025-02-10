@@ -102,11 +102,10 @@ const Home: React.FC = () => {
             </a>
             <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
               <a
-                href={encodeURI('/민동익_이력서1.pdf')}
+                href="/민동익_이력서1.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#4ECDC4] to-[#2AB19F] text-white rounded-lg hover:opacity-90 text-sm sm:text-base"
-                download="민동익_이력서.pdf"
               >
                 <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="ml-2 hidden sm:inline">{t('hero.resume')}</span>
