@@ -374,3 +374,9 @@ body {
     box-shadow: 0 12px 24px var(--shadow-color);
   }
 }
+
+// Card flip effect
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
