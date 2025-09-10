@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ScrollReveal from './ScrollReveal';
-import { Briefcase, ExternalLink, Newspaper, Calendar, MapPin, User, ChevronRight, Info } from 'lucide-react';
+import { Briefcase, ExternalLink, Newspaper, Calendar, MapPin, User, ChevronRight, Info, FileText } from 'lucide-react';
 
 interface ExperienceItem {
   title: string;
@@ -13,7 +13,7 @@ interface ExperienceItem {
   links?: {
     title: string;
     url: string;
-    type: 'news' | 'demo' | 'github';
+    type: 'news' | 'demo' | 'github' | 'paper';
   }[];
 }
 
@@ -27,109 +27,114 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <ScrollReveal delay={index * 150}>
-      <div className="relative h-80 perspective-1000">
-        <div 
-          className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
-            isFlipped ? 'rotate-y-180' : ''
-          }`}
-          onClick={() => setIsFlipped(!isFlipped)}
-        >
-          {/* Front Side */}
-          <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden">
-            <div className="relative h-full bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-xl p-6 group hover:shadow-2xl transition-all duration-300">
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
-              
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold gradient-1 mb-2 line-clamp-2">{project.title}</h3>
-                    <div className="space-y-2">
-                      <div className="flex items-center text-sm text-[var(--text-secondary)]">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        {project.company}
-                      </div>
-                      <div className="flex items-center text-sm text-[var(--text-secondary)]">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {project.period}
-                      </div>
-                      {project.role && (
+      <div className="space-y-4">
+        {/* Project Card */}
+        <div className="relative h-80 perspective-1000">
+          <div 
+            className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
+              isFlipped ? 'rotate-y-180' : ''
+            }`}
+            onClick={() => setIsFlipped(!isFlipped)}
+          >
+            {/* Front Side */}
+            <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-xl p-6 group hover:shadow-2xl transition-all duration-300">
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold gradient-1 mb-2 line-clamp-2">{project.title}</h3>
+                      <div className="space-y-2">
                         <div className="flex items-center text-sm text-[var(--text-secondary)]">
-                          <User className="w-4 h-4 mr-2" />
-                          {project.role}
+                          <MapPin className="w-4 h-4 mr-2" />
+                          {project.company}
                         </div>
-                      )}
+                        <div className="flex items-center text-sm text-[var(--text-secondary)]">
+                          <Calendar className="w-4 h-4 mr-2" />
+                          {project.period}
+                        </div>
+                        {project.role && (
+                          <div className="flex items-center text-sm text-[var(--text-secondary)]">
+                            <User className="w-4 h-4 mr-2" />
+                            {project.role}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                <div className="flex-1 mb-4">
-                  <p className="text-sm text-[var(--text-primary)] line-clamp-4 leading-relaxed">
-                    {project.description.split('\n')[0]}
-                  </p>
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-xs text-[var(--text-secondary)]">
-                    <Info className="w-3 h-3 mr-1" />
-                    클릭하여 자세히 보기
+                  
+                  <div className="flex-1 mb-4">
+                    <p className="text-sm text-[var(--text-primary)] line-clamp-4 leading-relaxed">
+                      {project.description.split('\n')[0]}
+                    </p>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors" />
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-xs text-[var(--text-secondary)]">
+                      <Info className="w-3 h-3 mr-1" />
+                      클릭하여 자세히 보기
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Back Side */}
-          <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl overflow-hidden">
-            <div className="relative h-full bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-xl p-6">
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-blue-500/5 to-purple-500/5 rounded-xl"></div>
-              
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col">
-                <h3 className="text-lg font-bold gradient-2 mb-4">{project.title}</h3>
+            {/* Back Side */}
+            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-xl p-6">
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-blue-500/5 to-purple-500/5 rounded-xl"></div>
                 
-                <div className="flex-1 overflow-y-auto">
-                  <div className="space-y-3 text-sm text-[var(--text-primary)] leading-relaxed">
-                    {project.description.split('\n\n').map((paragraph, idx) => (
-                      <div key={idx} className="relative pl-4 border-l-2 border-gradient-to-b from-[#4ECDC4] to-[#FF6B6B]">
-                        <div className="absolute -left-1.5 top-1 w-3 h-3 bg-gradient-to-r from-[#4ECDC4] to-[#FF6B6B] rounded-full"></div>
-                        <p>{paragraph}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                {project.links && project.links.length > 0 && (
-                  <div className="mt-4 pt-4 border-t border-[var(--border-color)]">
-                    <div className="flex flex-wrap gap-2">
-                      {project.links.map((link, linkIdx) => (
-                        <a
-                          key={linkIdx}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-500/20 rounded-full text-[var(--text-primary)] hover:text-blue-400 transition-all duration-200"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {link.type === 'news' && <Newspaper className="w-3 h-3" />}
-                          <span className="truncate max-w-[120px]">{link.title}</span>
-                        </a>
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col">
+                  <h3 className="text-lg font-bold gradient-2 mb-4">{project.title}</h3>
+                  
+                  <div className="flex-1 overflow-y-auto">
+                    <div className="space-y-3 text-sm text-[var(--text-primary)] leading-relaxed">
+                      {project.description.split('\n\n').map((paragraph, idx) => (
+                        <div key={idx} className="relative pl-4 border-l-2 border-gradient-to-b from-[#4ECDC4] to-[#FF6B6B]">
+                          <div className="absolute -left-1.5 top-1 w-3 h-3 bg-gradient-to-r from-[#4ECDC4] to-[#FF6B6B] rounded-full"></div>
+                          <p>{paragraph}</p>
+                        </div>
                       ))}
                     </div>
                   </div>
-                )}
-                
-                <div className="flex items-center justify-center mt-4 text-xs text-[var(--text-secondary)]">
-                  <Info className="w-3 h-3 mr-1" />
-                  다시 클릭하여 돌아가기
+                  
+                  <div className="flex items-center justify-center mt-4 text-xs text-[var(--text-secondary)]">
+                    <Info className="w-3 h-3 mr-1" />
+                    다시 클릭하여 돌아가기
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* External Links - Outside of card */}
+        {project.links && project.links.length > 0 && (
+          <div className="flex justify-center">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {project.links.map((link, linkIdx) => (
+                <a
+                  key={linkIdx}
+                  href={link.url}
+                  {...(link.type === 'paper' ? { download: link.title + '.pdf' } : { target: '_blank', rel: 'noopener noreferrer' })}
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-500/20 rounded-full text-[var(--text-primary)] hover:text-blue-400 transition-all duration-200 hover:scale-105"
+                >
+                  {link.type === 'news' && <Newspaper className="w-4 h-4" />}
+                  {link.type === 'paper' && <FileText className="w-4 h-4" />}
+                  {link.type === 'demo' && <ExternalLink className="w-4 h-4" />}
+                  {link.type === 'github' && <ExternalLink className="w-4 h-4" />}
+                  <span>{link.title}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </ScrollReveal>
   );
@@ -177,7 +182,14 @@ const Experience: React.FC = () => {
       period: t('experience.purdue.period'),
       description: t('experience.purdue.description'),
       role: t('experience.purdue.role'),
-      type: 'project'
+      type: 'project',
+      links: [
+        {
+          title: 'Lost and Found 논문',
+          url: '/Lost_and_Found.pdf',
+          type: 'paper'
+        }
+      ]
     }
   ];
 
