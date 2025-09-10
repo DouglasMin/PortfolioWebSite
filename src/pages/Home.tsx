@@ -1,19 +1,19 @@
 import React from 'react';
-import { 
-  ArrowRight, 
-  Github, 
+import {
+  ArrowRight,
+  Github,
   Instagram,
   Linkedin,
   FileText
 } from 'lucide-react';
-import { 
-  SiReact, 
-  SiTypescript, 
-  SiNextdotjs, 
+import {
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
   SiTailwindcss,
-  SiNodedotjs, 
-  SiExpress,  
-  SiFastapi, 
+  SiNodedotjs,
+  SiExpress,
+  SiFastapi,
   SiPostgresql,
   SiRedis,
   SiMysql,
@@ -51,13 +51,13 @@ const Home: React.FC = () => {
       { name: 'Node.js', icon: <SiNodedotjs className="w-5 h-5 text-[#339933]" /> },
       { name: 'Express', icon: <SiExpress className="w-5 h-5 text-[#000000] dark:text-white" /> },
       { name: 'FastAPI', icon: <SiFastapi className="w-5 h-5 text-[#009688]" /> }
-        ],
+    ],
     database: [
       { name: 'PostgreSQL', icon: <SiPostgresql className="w-5 h-5 text-[#4169E1]" /> },
       { name: 'Redis', icon: <SiRedis className="w-5 h-5 text-[#DC382D]" /> },
       { name: 'MySQL', icon: <SiMysql className="w-5 h-5 text-[#4479A1]" /> },
       { name: 'DynamoDB', icon: <SiAmazondynamodb className="w-5 h-5 text-[#4479A1]" /> },
-      
+
     ],
     architecture: [
       { name: 'AWS', icon: <SiAmazonwebservices className="w-5 h-5 text-[#FF9900]" /> },
@@ -91,8 +91,8 @@ const Home: React.FC = () => {
             </a>
             <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center">
               <a
-                href="/민동익_이력서1.pdf"
-                download="민동익_이력서.pdf"
+                href="/resume.pdf"
+                download="resume.pdf"
                 className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#4ECDC4] to-[#2AB19F] text-white rounded-lg hover:opacity-90 text-sm sm:text-base transition-all duration-200 hover:scale-105"
               >
                 <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -154,30 +154,30 @@ const Home: React.FC = () => {
               <div className="skill-card p-4 sm:p-6 relative group overflow-hidden">
                 {/* Animated background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Floating particles */}
                 <div className="absolute inset-0 overflow-hidden">
                   <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:animate-pulse"></div>
                   <div className="absolute bottom-6 left-6 w-1 h-1 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-full opacity-30 group-hover:animate-bounce"></div>
                 </div>
-                
+
                 <div className="flex items-center mb-4 relative z-10">
                   <div className="relative">
-                    {key === 'frontend' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3 group-hover:animate-spin" style={{animationDuration: '3s'}} />}
+                    {key === 'frontend' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3 group-hover:animate-spin" style={{ animationDuration: '3s' }} />}
                     {key === 'backend' && <SiNodedotjs className="w-6 h-6 sm:w-8 sm:h-8 text-[#339933] mr-3 group-hover:scale-110 transition-transform duration-300" />}
                     {key === 'database' && <SiPostgresql className="w-6 h-6 sm:w-8 sm:h-8 text-[#4169E1] mr-3 group-hover:scale-110 transition-transform duration-300" />}
                     {key === 'architecture' && <SiAmazonwebservices className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF9900] mr-3 group-hover:scale-110 transition-transform duration-300" />}
-                    {key === 'frameworks' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3 group-hover:animate-spin" style={{animationDuration: '3s'}} />}
+                    {key === 'frameworks' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3 group-hover:animate-spin" style={{ animationDuration: '3s' }} />}
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold gradient-1 group-hover:text-shimmer transition-all duration-300">{t(`skills.${key}` as const)}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2 relative z-10">
                   {technologies.map((tech, techIndex) => (
-                    <span 
-                      key={tech.name} 
+                    <span
+                      key={tech.name}
                       className="tech-tag text-sm sm:text-base flex items-center gap-1 group-hover:scale-105 transition-transform duration-200 hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10"
-                      style={{transitionDelay: `${techIndex * 50}ms`}}
+                      style={{ transitionDelay: `${techIndex * 50}ms` }}
                     >
                       {tech.icon}
                       {tech.name}
