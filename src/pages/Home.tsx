@@ -10,21 +10,19 @@ import {
   SiReact, 
   SiTypescript, 
   SiNextdotjs, 
-  SiTailwindcss, 
-  SiSass, 
+  SiTailwindcss,
   SiNodedotjs, 
-  SiExpress, 
-  SiPython, 
+  SiExpress,  
   SiFastapi, 
-  SiGraphql, 
-  SiDjango,
   SiPostgresql,
   SiRedis,
   SiPrisma,
   SiMysql,
   SiAmazonwebservices,
   SiDocker,
-  SiGithubactions
+  SiGithubactions,
+  SiAmazondynamodb,
+  SiAmazonrds
 } from 'react-icons/si';
 import { useLanguage } from '../contexts/LanguageContext';
 import { projects } from '../data/projects';
@@ -52,34 +50,30 @@ const Home: React.FC = () => {
       { name: 'React', icon: <SiReact className="w-5 h-5 text-[#61DAFB]" /> },
       { name: 'TypeScript', icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" /> },
       { name: 'Next.js', icon: <SiNextdotjs className="w-5 h-5 text-[#000000] dark:text-white" /> },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" /> },
-      { name: 'SCSS', icon: <SiSass className="w-5 h-5 text-[#CC6699]" /> }
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" /> }
     ],
     backend: [
       { name: 'Node.js', icon: <SiNodedotjs className="w-5 h-5 text-[#339933]" /> },
       { name: 'Express', icon: <SiExpress className="w-5 h-5 text-[#000000] dark:text-white" /> },
-      { name: 'Python', icon: <SiPython className="w-5 h-5 text-[#3776AB]" /> },
-      { name: 'FastAPI', icon: <SiFastapi className="w-5 h-5 text-[#009688]" /> },
-      { name: 'GraphQL', icon: <SiGraphql className="w-5 h-5 text-[#E10098]" /> },
-      { name: 'Django', icon: <SiDjango className="w-5 h-5 text-[#092E20]" /> }
-    ],
+      { name: 'FastAPI', icon: <SiFastapi className="w-5 h-5 text-[#009688]" /> }
+        ],
     database: [
       { name: 'PostgreSQL', icon: <SiPostgresql className="w-5 h-5 text-[#4169E1]" /> },
       { name: 'Redis', icon: <SiRedis className="w-5 h-5 text-[#DC382D]" /> },
-      { name: 'Prisma', icon: <SiPrisma className="w-5 h-5 text-[#2D3748]" /> },
-      { name: 'MySQL', icon: <SiMysql className="w-5 h-5 text-[#4479A1]" /> }
+      { name: 'MySQL', icon: <SiMysql className="w-5 h-5 text-[#4479A1]" /> },
+      { name: 'DynamoDB', icon: <SiAmazondynamodb className="w-5 h-5 text-[#4479A1]" /> },
+      
     ],
     architecture: [
       { name: 'AWS', icon: <SiAmazonwebservices className="w-5 h-5 text-[#FF9900]" /> },
       { name: 'Docker', icon: <SiDocker className="w-5 h-5 text-[#2496ED]" /> },
-      { name: 'CI/CD', icon: <SiGithubactions className="w-5 h-5 text-[#2088FF]" /> }
+      { name: 'Github Actions', icon: <SiGithubactions className="w-5 h-5 text-[#2088FF]" /> }
     ],
     frameworks: [
       { name: 'React', icon: <SiReact className="w-5 h-5 text-[#61DAFB]" /> },
       { name: 'TypeScript', icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" /> },
       { name: 'Next.js', icon: <SiNextdotjs className="w-5 h-5 text-[#000000] dark:text-white" /> },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" /> },
-      { name: 'SCSS', icon: <SiSass className="w-5 h-5 text-[#CC6699]" /> }
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" /> }
     ]
   };
 
@@ -143,25 +137,54 @@ const Home: React.FC = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section id="skills" className="py-12 sm:py-20">
+      <section id="skills" className="py-12 sm:py-20 relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-pink-400/10 to-yellow-600/10 rounded-full blur-3xl"></div>
+        </div>
         <ScrollReveal>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-2">{t('skills.title')}</h2>
+          <div className="text-center mb-8 sm:mb-12 relative">
+            <div className="inline-block relative">
+              <h2 className="text-3xl sm:text-4xl font-bold gradient-2 relative z-10">{t('skills.title')}</h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-lg rounded-lg -z-10"></div>
+            </div>
+            <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
+              현대적인 기술 스택으로 혁신적인 솔루션을 구축합니다
+            </p>
+          </div>
         </ScrollReveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {(Object.entries(techStack) as [SkillSection, TechItem[]][]).map(([key, technologies]) => (
-            <ScrollReveal key={key}>
-              <div className="skill-card p-4 sm:p-6">
-                <div className="flex items-center mb-4">
-                  {key === 'frontend' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3" />}
-                  {key === 'backend' && <SiNodedotjs className="w-6 h-6 sm:w-8 sm:h-8 text-[#339933] mr-3" />}
-                  {key === 'database' && <SiPostgresql className="w-6 h-6 sm:w-8 sm:h-8 text-[#4169E1] mr-3" />}
-                  {key === 'architecture' && <SiAmazonwebservices className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF9900] mr-3" />}
-                  {key === 'frameworks' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3" />}
-                  <h3 className="text-lg sm:text-xl font-bold gradient-1">{t(`skills.${key}` as const)}</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative z-10">
+          {(Object.entries(techStack) as [SkillSection, TechItem[]][]).map(([key, technologies], index) => (
+            <ScrollReveal key={key} delay={index * 100}>
+              <div className="skill-card p-4 sm:p-6 relative group overflow-hidden">
+                {/* Animated background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Floating particles */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:animate-pulse"></div>
+                  <div className="absolute bottom-6 left-6 w-1 h-1 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-full opacity-30 group-hover:animate-bounce"></div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {technologies.map((tech) => (
-                    <span key={tech.name} className="tech-tag text-sm sm:text-base flex items-center gap-1">
+                
+                <div className="flex items-center mb-4 relative z-10">
+                  <div className="relative">
+                    {key === 'frontend' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3 group-hover:animate-spin" style={{animationDuration: '3s'}} />}
+                    {key === 'backend' && <SiNodedotjs className="w-6 h-6 sm:w-8 sm:h-8 text-[#339933] mr-3 group-hover:scale-110 transition-transform duration-300" />}
+                    {key === 'database' && <SiPostgresql className="w-6 h-6 sm:w-8 sm:h-8 text-[#4169E1] mr-3 group-hover:scale-110 transition-transform duration-300" />}
+                    {key === 'architecture' && <SiAmazonwebservices className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF9900] mr-3 group-hover:scale-110 transition-transform duration-300" />}
+                    {key === 'frameworks' && <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB] mr-3 group-hover:animate-spin" style={{animationDuration: '3s'}} />}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold gradient-1 group-hover:text-shimmer transition-all duration-300">{t(`skills.${key}` as const)}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2 relative z-10">
+                  {technologies.map((tech, techIndex) => (
+                    <span 
+                      key={tech.name} 
+                      className="tech-tag text-sm sm:text-base flex items-center gap-1 group-hover:scale-105 transition-transform duration-200 hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10"
+                      style={{transitionDelay: `${techIndex * 50}ms`}}
+                    >
                       {tech.icon}
                       {tech.name}
                     </span>
@@ -186,9 +209,22 @@ const Home: React.FC = () => {
       <Certifications />
 
       {/* Featured Projects Section */}
-      <section id="projects" className="py-12 sm:py-20">
+      <section id="projects" className="py-12 sm:py-20 relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-green-400/20 to-blue-600/20 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-tr from-purple-400/20 to-pink-600/20 rounded-full blur-2xl"></div>
+        </div>
         <ScrollReveal>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-3">{t('projects.title')}</h2>
+          <div className="text-center mb-8 sm:mb-12 relative">
+            <div className="inline-block relative">
+              <h2 className="text-3xl sm:text-4xl font-bold gradient-3 relative z-10">{t('projects.title')}</h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-600/20 to-red-600/20 blur-lg rounded-lg -z-10"></div>
+            </div>
+            <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
+              실제 비즈니스 문제를 해결하는 프로젝트들을 소개합니다
+            </p>
+          </div>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {projects.filter(project => project.featured).map((project) => (

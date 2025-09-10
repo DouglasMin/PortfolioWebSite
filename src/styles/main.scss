@@ -179,6 +179,55 @@ body {
   }
 }
 
+// Enhanced text effects
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--text-primary) 0%,
+    #FF6B6B 25%,
+    #4ECDC4 50%,
+    #FFD93D 75%,
+    var(--text-primary) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+// Floating animation for decorative elements
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+// Pulse effect for important elements
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(78, 205, 196, 0.4);
+  }
+}
+
 // Message styles
 .message-window {
   background: var(--bg-secondary);
@@ -340,6 +389,29 @@ body {
   background: var(--bg-secondary);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 107, 107, 0.3);
+  }
 }
 
 .gradient-1 {

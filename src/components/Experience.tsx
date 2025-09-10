@@ -29,9 +29,22 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-12 sm:py-20">
+    <section id="experience" className="py-12 sm:py-20 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-br from-indigo-400/10 to-purple-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-tr from-teal-400/10 to-blue-600/10 rounded-full blur-3xl"></div>
+      </div>
       <ScrollReveal>
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-2">{t('experience.title')}</h2>
+        <div className="text-center mb-8 sm:mb-12 relative">
+          <div className="inline-block relative">
+            <h2 className="text-3xl sm:text-4xl font-bold gradient-2 relative z-10">{t('experience.title')}</h2>
+            <div className="absolute -inset-2 bg-gradient-to-r from-teal-600/20 to-blue-600/20 blur-lg rounded-lg -z-10"></div>
+          </div>
+          <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
+            다양한 프로젝트를 통해 쌓아온 실무 경험과 성과를 소개합니다
+          </p>
+        </div>
       </ScrollReveal>
       <div className="max-w-3xl mx-auto px-4 space-y-6 sm:space-y-8">
         {experiences.map((experience, index) => (
@@ -51,9 +64,16 @@ const Experience: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <p className="text-[var(--text-primary)] text-sm sm:text-base leading-relaxed">
-                  {experience.description}
-                </p>
+                <div className="text-[var(--text-primary)] text-sm sm:text-base leading-relaxed space-y-3">
+                  {experience.description.split('\n\n').map((paragraph, idx) => (
+                    <div key={idx} className="relative pl-4 border-l-2 border-gradient-to-b from-[#FF6B6B] to-[#4ECDC4]">
+                      <div className="absolute -left-1.5 top-2 w-3 h-3 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-full"></div>
+                      <p className="leading-relaxed text-[var(--text-primary)] bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-secondary)] bg-clip-text">
+                        {paragraph}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </ScrollReveal>

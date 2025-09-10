@@ -19,14 +19,14 @@ const Certifications: React.FC = () => {
   const certifications: CertificationItem[] = [
     {
       name: {
-        ko: 'AWS 공인 솔루션스 아키텍트 - 어소시에이트',
-        en: 'AWS Certified Solutions Architect - Associate'
+        ko: 'AWS 공인 AI Practitioner',
+        en: 'AWS Certified AI Practitioner - Foundational'
       },
       issuer: {
         ko: '아마존 웹 서비스',
         en: 'Amazon Web Services'
       },
-      date: '2024.12',
+      date: '2025.02',
       url: 'https://aws.amazon.com/verification'
     }
   ];

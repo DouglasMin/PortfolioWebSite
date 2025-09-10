@@ -6,7 +6,7 @@ type Language = 'ko' | 'en';
 type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
 
 // 모든 가능한 번역 키를 정의
-type TranslationKey = 
+type TranslationKey =
   | `nav.${NavSection}`
   | 'hero.greeting'
   | 'hero.name'
@@ -72,7 +72,7 @@ const translations: Record<Language, TranslationRecord> = {
     'nav.education': '학력',
     'nav.certifications': '자격증',
     'nav.projects': '프로젝트',
-    
+
     // Hero Section
     'hero.greeting': '안녕하세요 👋',
     'hero.name': '저는 민동익입니다',
@@ -83,7 +83,7 @@ const translations: Record<Language, TranslationRecord> = {
     'hero.description': '새로운 기술과 도전을 사랑하는 개발자입니다',
     'hero.viewProjects': '프로젝트 보기',
     'hero.resume': '이력서',
-    
+
     // Skills Section
     'skills.title': '기술 스택',
     'skills.frontend': '프론트엔드',
@@ -92,13 +92,13 @@ const translations: Record<Language, TranslationRecord> = {
     'skills.architecture': '아키텍처',
     'skills.testing': '테스팅',
     'skills.frameworks': '프레임워크',
-    
+
     // Experience Section
     'experience.title': '경력 & 프로젝트',
     'experience.junior.title': '풀스택 개발자',
     'experience.junior.company': '(주)에이아이네이션',
-    'experience.junior.period': '2024.10 - 현재',
-    'experience.junior.description': '-',
+    'experience.junior.period': '2024.10 - 2025.07',
+    'experience.junior.description': 'F&B 상권 분석 플랫폼 "딥비스트로" 기획·개발·배포, 공공 API·지도 데이터·AI 분석 모듈 통합\n\nAWS ECS·CI/CD 기반 인프라 전환으로 성능·안정성 개선, 사용자 피드백 반영한 빠른 개선 사이클 구축\n\nAI 역량평가 플랫폼 비동기 처리·자동 보고서 시스템 개발 → 보고서 작성 자동화 및 생산성 대폭 향상',
     'experience.intern.title': '프로덕트 - 개발팀 (인턴)',
     'experience.intern.company': '(주)하이어다이버시티',
     'experience.intern.period': '2024.06 - 2024.08',
@@ -113,12 +113,12 @@ const translations: Record<Language, TranslationRecord> = {
     'experience.purdue.period': '2023.09 - 2024.01',
     'experience.purdue.role': '연구원',
     'experience.purdue.description': '드론과 AI 기술을 결합하여 골프장에서의 분실 골프공을 자동으로 탐지하고 수거하는 혁신적인 시스템 개발. 컴퓨터 비전과 딥러닝 알고리즘을 활용한 실시간 객체 인식 구현',
-    
+
     // Projects Section
     'projects.title': '주요 프로젝트',
     'projects.viewCode': '코드 보기',
     'projects.viewDemo': '데모 보기',
-    
+
     // Language Toggle
     'lang.toggle': '한/영',
 
@@ -138,7 +138,7 @@ const translations: Record<Language, TranslationRecord> = {
     'nav.education': 'Education',
     'nav.certifications': 'Certifications',
     'nav.projects': 'Projects',
-    
+
     // Hero Section
     'hero.greeting': 'Hi there 👋',
     'hero.name': "I'm Dongik (Douglas) Min",
@@ -149,7 +149,7 @@ const translations: Record<Language, TranslationRecord> = {
     'hero.description': 'A developer who loves new technologies and challenges',
     'hero.viewProjects': 'View Projects',
     'hero.resume': 'Resume',
-    
+
     // Skills Section
     'skills.title': 'Tech Stack',
     'skills.frontend': 'Frontend',
@@ -158,13 +158,13 @@ const translations: Record<Language, TranslationRecord> = {
     'skills.architecture': 'Architecture',
     'skills.testing': 'Testing',
     'skills.frameworks': 'Frameworks',
-    
+
     // Experience Section
     'experience.title': 'Experience & Projects',
     'experience.junior.title': 'Full Stack Developer',
     'experience.junior.company': 'AINation Inc.',
-    'experience.junior.period': '2024.10 - Present',
-    'experience.junior.description': 'Web application development using React and Node.js',
+    'experience.junior.period': '2024.10 - 2025.07',
+    'experience.junior.description': 'Planned, developed, and deployed F&B market analysis platform "DeepBistro", integrating public APIs, map data, and AI analysis modules\n\nImproved performance and stability through AWS ECS and CI/CD-based infrastructure transformation, establishing rapid improvement cycles based on user feedback\n\nDeveloped asynchronous processing and automated report systems for AI competency assessment platform → Automated report generation and significantly improved productivity',
     'experience.intern.title': 'Product - Development Team (Intern)',
     'experience.intern.company': 'Higher Diversity',
     'experience.intern.period': '2024.06 - 2024.08',
@@ -179,12 +179,12 @@ const translations: Record<Language, TranslationRecord> = {
     'experience.purdue.period': '2023.09 - 2024.01',
     'experience.purdue.role': 'Researcher',
     'experience.purdue.description': 'Developed an innovative system that combines drone technology and AI to automatically detect and collect lost golf balls on golf courses. Implemented real-time object detection using computer vision and deep learning algorithms',
-    
+
     // Projects Section
     'projects.title': 'Featured Projects',
     'projects.viewCode': 'View Code',
     'projects.viewDemo': 'Live Demo',
-    
+
     // Language Toggle
     'lang.toggle': 'KO/EN',
 

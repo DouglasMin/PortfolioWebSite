@@ -38,14 +38,24 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, delay }) => {
       }}
       className={`flex justify-end ${message.length < 15 ? 'mt-1 mb-2' : 'mt-1.5 mb-2'} sm:mb-4`}
     >
-      <div className={`message-bubble ${getMaxWidth(message.length)} ${getPadding(message.length)}`}>
+      <div className={`message-bubble ${getMaxWidth(message.length)} ${getPadding(message.length)} relative overflow-hidden`}>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-[18px]"></div>
+        
+        {/* Animated background particles */}
+        <div className="absolute inset-0 overflow-hidden rounded-[18px]">
+          <div className="absolute top-2 right-3 w-1 h-1 bg-white/30 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-3 left-4 w-0.5 h-0.5 bg-white/20 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        </div>
+        
         <p className={`text-[13px] sm:text-[15px] leading-[1.4] sm:leading-[1.3] text-left
-          break-words hyphens-auto
+          break-words hyphens-auto relative z-10
           ${hasKorean ? 'word-break-keep-all' : ''} 
           whitespace-normal overflow-hidden
           [word-spacing:0.1em]
           sm:[word-spacing:normal]
-          [text-align-last:left]`}
+          [text-align-last:left]
+          text-white drop-shadow-sm`}
           style={{
             wordSpacing: hasEnglish ? '0.1em' : 'normal',
             textAlign: 'justify'
