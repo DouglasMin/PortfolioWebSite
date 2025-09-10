@@ -16,17 +16,13 @@ import {
   SiFastapi, 
   SiPostgresql,
   SiRedis,
-  SiPrisma,
   SiMysql,
   SiAmazonwebservices,
   SiDocker,
   SiGithubactions,
-  SiAmazondynamodb,
-  SiAmazonrds
+  SiAmazondynamodb
 } from 'react-icons/si';
 import { useLanguage } from '../contexts/LanguageContext';
-import { projects } from '../data/projects';
-import ProjectCard from '../components/ProjectCard';
 import ScrollReveal from '../components/ScrollReveal';
 import ChatIntro from '../components/ChatIntro';
 import Experience from '../components/Experience';
@@ -43,7 +39,6 @@ interface TechItem {
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
-  const featuredProjects = projects.filter(project => project.featured);
 
   const techStack: Record<SkillSection, TechItem[]> = {
     frontend: [
@@ -207,33 +202,6 @@ const Home: React.FC = () => {
 
       {/* Certifications Section */}
       <Certifications />
-
-      {/* Featured Projects Section */}
-      <section id="projects" className="py-12 sm:py-20 relative">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-green-400/20 to-blue-600/20 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-tr from-purple-400/20 to-pink-600/20 rounded-full blur-2xl"></div>
-        </div>
-        <ScrollReveal>
-          <div className="text-center mb-8 sm:mb-12 relative">
-            <div className="inline-block relative">
-              <h2 className="text-3xl sm:text-4xl font-bold gradient-3 relative z-10">{t('projects.title')}</h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-600/20 to-red-600/20 blur-lg rounded-lg -z-10"></div>
-            </div>
-            <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
-              실제 비즈니스 문제를 해결하는 프로젝트들을 소개합니다
-            </p>
-          </div>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {projects.filter(project => project.featured).map((project) => (
-            <ScrollReveal key={project.id}>
-              <ProjectCard project={project} />
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
