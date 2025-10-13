@@ -8,6 +8,7 @@ interface ExperienceItem {
   company: string;
   period: string;
   description: string;
+  technologies?: string[];
   role?: string;
   type: 'work' | 'project';
   links?: {
@@ -71,6 +72,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                       {project.description.split('\n')[0]}
                     </p>
                   </div>
+
+                  {project.technologies && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech) => (
+                        <span key={tech} className="tech-tag text-xs">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center text-xs text-[var(--text-secondary)]">
@@ -174,7 +185,8 @@ const Experience: React.FC = () => {
       period: t('experience.seah.period'),
       description: t('experience.seah.description'),
       role: t('experience.seah.role'),
-      type: 'project'
+      type: 'project',
+      technologies: ['Python', 'FastAPI', 'React', 'AI']
     },
     {
       title: t('experience.purdue.title'),
@@ -183,6 +195,7 @@ const Experience: React.FC = () => {
       description: t('experience.purdue.description'),
       role: t('experience.purdue.role'),
       type: 'project',
+      technologies: ['Python', 'Computer Vision', 'YOLOv8', 'UAV'],
       links: [
         {
           title: 'Lost and Found 논문',

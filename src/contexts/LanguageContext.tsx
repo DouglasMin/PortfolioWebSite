@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 type Language = 'ko' | 'en';
 
 // 네비게이션 섹션에 있는 모든 가능한 값들을 유니온 타입으로 정의
-type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
+type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects' | 'contact';
 
 // 모든 가능한 번역 키를 정의
 type TranslationKey =
@@ -72,6 +72,7 @@ const translations: Record<Language, TranslationRecord> = {
     'nav.education': '학력',
     'nav.certifications': '자격증',
     'nav.projects': '프로젝트',
+    'nav.contact': '연락처',
 
     // Hero Section
     'hero.greeting': '안녕하세요 👋',
@@ -138,6 +139,7 @@ const translations: Record<Language, TranslationRecord> = {
     'nav.education': 'Education',
     'nav.certifications': 'Certifications',
     'nav.projects': 'Projects',
+    'nav.contact': 'Contact',
 
     // Hero Section
     'hero.greeting': 'Hi there 👋',

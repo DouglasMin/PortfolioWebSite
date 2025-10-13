@@ -2,9 +2,9 @@ import React from 'react';
 import {
   ArrowRight,
   Github,
-  Instagram,
   Linkedin,
-  FileText
+  FileText,
+  Mail
 } from 'lucide-react';
 import {
   SiReact,
@@ -29,6 +29,8 @@ import Experience from '../components/Experience';
 import Awards from '../components/Awards';
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
+
+
 
 type SkillSection = 'frontend' | 'backend' | 'database' | 'architecture' | 'frameworks';
 
@@ -108,15 +110,6 @@ const Home: React.FC = () => {
                 <span className="ml-2 hidden sm:inline">GitHub</span>
               </a>
               <a
-                href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-lg hover:opacity-90 text-sm sm:text-base"
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="ml-2 hidden sm:inline">Instagram</span>
-              </a>
-              <a
                 href="https://www.linkedin.com/in/dongik-min-b8976a273/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,6 +117,13 @@ const Home: React.FC = () => {
               >
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="ml-2 hidden sm:inline">LinkedIn</span>
+              </a>
+              <a
+                href="mailto:douglas0703iscool@gmail.com"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#EA4335] to-[#FBBC04] text-white rounded-lg hover:opacity-90 text-sm sm:text-base"
+              >
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="ml-2 hidden sm:inline">Email</span>
               </a>
             </div>
           </div>
@@ -202,20 +202,7 @@ const Home: React.FC = () => {
       {/* Certifications Section */}
       <Certifications />
 
-      {/* Projects Section */}
-      <section id="projects" className="py-12 sm:py-20">
-        <ScrollReveal>
-          <div className="text-center mb-8 sm:mb-12 relative">
-            <div className="inline-block relative">
-              <h2 className="text-3xl sm:text-4xl font-bold gradient-3 relative z-10">프로젝트</h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-red-600/20 blur-lg rounded-lg -z-10"></div>
-            </div>
-            <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
-              다양한 기술 스택으로 구현한 프로젝트들을 소개합니다
-            </p>
-          </div>
-        </ScrollReveal>
-      </section>
+
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Instagram } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -22,17 +22,21 @@ const Header: React.FC = () => {
             <Link to="/#education" className="text-[var(--text-secondary)] hover:text-blue-600">{t('nav.education')}</Link>
             <Link to="/#certifications" className="text-[var(--text-secondary)] hover:text-blue-600">{t('nav.certifications')}</Link>
             <Link to="/#projects" className="text-[var(--text-secondary)] hover:text-blue-600">{t('nav.projects')}</Link>
+            <Link to="/#contact" className="text-[var(--text-secondary)] hover:text-blue-600">{t('nav.contact')}</Link>
           </nav>
 
           <div className="flex items-center space-x-4">
-            <a href="https://github.com/DouglasMin" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://github.com/DouglasMin" target="_blank" rel="noopener noreferrer" className="social-link inline-flex" title="GitHub">
               <Github className="w-5 h-5 text-[var(--text-secondary)] hover:text-blue-600" />
             </a>
-            <a href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.instagram.com/mindong_mandongik?igsh=MWR1dWltd2ZnM3o0eg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-link inline-flex" title="Instagram">
               <Instagram className="w-5 h-5 text-[var(--text-secondary)] hover:text-blue-600" />
             </a>
-            <a href="https://www.linkedin.com/in/dongik-min-b8976a273/" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.linkedin.com/in/dongik-min-b8976a273/" target="_blank" rel="noopener noreferrer" className="social-link inline-flex" title="LinkedIn">
               <Linkedin className="w-5 h-5 text-[var(--text-secondary)] hover:text-blue-600" />
+            </a>
+            <a href="mailto:douglas0703iscool@gmail.com" className="social-link inline-flex" title="Email">
+              <Mail className="w-5 h-5 text-[var(--text-secondary)] hover:text-blue-600" />
             </a>
           </div>
         </div>

@@ -133,23 +133,6 @@ body {
   color: var(--text-primary);
   background: var(--bg-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
-  
-  &.light {
-    background-image: 
-      radial-gradient(at 40% 20%, rgba(255, 107, 107, 0.1) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(78, 205, 196, 0.1) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(255, 217, 61, 0.1) 0px, transparent 50%);
-  }
-  
-  &.dark {
-    background-image: 
-      radial-gradient(at 40% 20%, rgba(255, 107, 107, 0.05) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(78, 205, 196, 0.05) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(255, 217, 61, 0.05) 0px, transparent 50%);
-  }
-  
-  background-attachment: fixed;
-  position: relative;
 }
 
 // Glassmorphism Classes
@@ -455,6 +438,19 @@ body {
 
   :root.dark & {
     @apply text-gray-400 bg-gray-800;
+  }
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-speed ease;
+  position: relative;
+  z-index: 10;
+  
+  &:hover {
+    transform: translateY(-2px);
   }
 }
 
