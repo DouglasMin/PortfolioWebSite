@@ -4,6 +4,7 @@ import { useLanguage } from './contexts/LanguageContext';
 import { useTheme } from './contexts/ThemeContext';
 import Home from './pages/Home';
 import LikeVisitCounter from './components/LikeVisitCounter';
+import './styles/tailwind.css';
 import './styles/main.scss';
 
 type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
@@ -16,17 +17,19 @@ function App() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.5,
+      rootMargin: '-20% 0px -20% 0px',
+      threshold: 0.3,
     };
 
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          // Remove active class from all progress items
           document.querySelectorAll('.progress-item').forEach((item) => {
             item.classList.remove('active');
           });
-          
+
+          // Add active class to the current section's progress item
           const activeItem = document.querySelector(`[data-section="${entry.target.id}"]`);
           if (activeItem) {
             activeItem.classList.add('active');
@@ -37,13 +40,30 @@ function App() {
 
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section);
-      if (element) observer.observe(element);
-    });
+    // Add a small delay to ensure DOM is fully rendered
+    const timer = setTimeout(() => {
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          observer.observe(element);
+        }
+      });
 
-    return () => observer.disconnect();
-  }, []);
+      // Manually activate the first visible section on load
+      const firstSection = document.getElementById('home');
+      if (firstSection) {
+        const firstProgressItem = document.querySelector('[data-section="home"]');
+        if (firstProgressItem) {
+          firstProgressItem.classList.add('active');
+        }
+      }
+    }, 100);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, [sections]);
 
   const handleProgressClick = (section: NavSection) => {
     const element = document.getElementById(section);

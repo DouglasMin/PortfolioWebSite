@@ -65,15 +65,15 @@ const LikeVisitCounter: React.FC = () => {
 
   return (
     <div className="fixed bottom-4 right-4 flex items-center space-x-4 z-50">
-      <div className="flex items-center space-x-2 bg-[var(--bg-secondary)] px-4 py-2 rounded-full shadow-lg">
+      <div className="flex items-center space-x-2 glass-button px-4 py-2">
         <Eye className="w-4 h-4 text-[var(--text-secondary)]" />
         <span className="text-sm text-[var(--text-secondary)]">{visits}</span>
       </div>
       <button
         onClick={handleLike}
         disabled={isLiked}
-        className={`flex items-center space-x-2 bg-[var(--bg-secondary)] px-4 py-2 rounded-full shadow-lg transition-all duration-300 ${
-          isLiked ? 'cursor-default' : 'hover:bg-pink-50 dark:hover:bg-pink-900/20'
+        className={`flex items-center space-x-2 glass-button px-4 py-2 transition-all duration-300 ${
+          isLiked ? 'cursor-default' : ''
         }`}
       >
         <Heart

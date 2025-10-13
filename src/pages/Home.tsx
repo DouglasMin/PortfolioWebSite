@@ -151,7 +151,7 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative z-10">
           {(Object.entries(techStack) as [SkillSection, TechItem[]][]).map(([key, technologies], index) => (
             <ScrollReveal key={key} delay={index * 100}>
-              <div className="skill-card p-4 sm:p-6 relative group overflow-hidden">
+              <div className="skill-card glass-card p-4 sm:p-6 relative group overflow-hidden">
                 {/* Animated background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -201,6 +201,21 @@ const Home: React.FC = () => {
 
       {/* Certifications Section */}
       <Certifications />
+
+      {/* Projects Section */}
+      <section id="projects" className="py-12 sm:py-20">
+        <ScrollReveal>
+          <div className="text-center mb-8 sm:mb-12 relative">
+            <div className="inline-block relative">
+              <h2 className="text-3xl sm:text-4xl font-bold gradient-3 relative z-10">프로젝트</h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-red-600/20 blur-lg rounded-lg -z-10"></div>
+            </div>
+            <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
+              다양한 기술 스택으로 구현한 프로젝트들을 소개합니다
+            </p>
+          </div>
+        </ScrollReveal>
+      </section>
     </div>
   );
 };

@@ -36,7 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-300" />
             
             {/* Main Card Front */}
-            <div className="relative rounded-lg bg-[var(--bg-secondary)] shadow-lg h-full">
+            <div className="relative rounded-lg glass-card shadow-lg h-full">
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-4 gradient-1">
                   {project.title[currentLanguage]}
@@ -46,7 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--bg-tertiary)] text-[var(--text-secondary)] transition-colors duration-300"
+                      className="px-3 py-1 text-xs font-medium rounded-full glass-light text-[var(--text-secondary)] transition-colors duration-300"
                     >
                       {tag}
                     </span>
@@ -144,7 +144,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#FF6B6B] rounded-lg blur opacity-75 transition duration-300" />
             
             {/* Main Card Back */}
-            <div className="relative rounded-lg bg-[var(--bg-secondary)] shadow-lg h-full">
+            <div className="relative rounded-lg glass-heavy shadow-lg h-full">
               <div className="p-6 space-y-4">
                 {(project.company || project.period || project.role) && (
                   <div className="flex flex-col space-y-2">

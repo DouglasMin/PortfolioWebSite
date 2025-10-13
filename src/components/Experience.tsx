@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           >
             {/* Front Side */}
             <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden">
-              <div className="relative h-full bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-xl p-6 group hover:shadow-2xl transition-all duration-300">
+              <div className="relative h-full glass-card rounded-xl p-6 group hover:shadow-2xl transition-all duration-300">
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
                 
@@ -85,7 +85,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
             {/* Back Side */}
             <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl overflow-hidden">
-              <div className="relative h-full bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-xl p-6">
+              <div className="relative h-full glass-heavy rounded-xl p-6">
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-blue-500/5 to-purple-500/5 rounded-xl"></div>
                 
@@ -123,7 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   key={linkIdx}
                   href={link.url}
                   {...(link.type === 'paper' ? { download: link.title + '.pdf' } : { target: '_blank', rel: 'noopener noreferrer' })}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-500/20 rounded-full text-[var(--text-primary)] hover:text-blue-400 transition-all duration-200 hover:scale-105"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm glass-button rounded-full text-[var(--text-primary)] hover:text-blue-400 transition-all duration-200 hover:scale-105"
                 >
                   {link.type === 'news' && <Newspaper className="w-4 h-4" />}
                   {link.type === 'paper' && <FileText className="w-4 h-4" />}
@@ -226,7 +226,7 @@ const Experience: React.FC = () => {
             <ScrollReveal key={index} delay={index * 200}>
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-300" />
-                <div className="relative p-4 sm:p-6 bg-[var(--bg-secondary)] rounded-lg">
+                <div className="relative p-4 sm:p-6 glass-card rounded-lg">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h4 className="text-lg sm:text-xl font-bold gradient-1">{experience.title}</h4>
@@ -263,7 +263,7 @@ const Experience: React.FC = () => {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-500/20 rounded-full text-[var(--text-primary)] hover:text-blue-400 transition-all duration-200 group"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm glass-button rounded-full text-[var(--text-primary)] hover:text-blue-400 transition-all duration-200 group"
                           >
                             {link.type === 'news' && <Newspaper className="w-3 h-3" />}
                             <span className="group-hover:underline">{link.title}</span>

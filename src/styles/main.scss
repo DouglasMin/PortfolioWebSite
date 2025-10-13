@@ -1,3 +1,5 @@
+// Tailwind CSS is imported in App.tsx
+
 // Variables
 $gradient-1: linear-gradient(135deg, #FF6B6B, #4ECDC4);
 $gradient-2: linear-gradient(135deg, #A8E6CF, #3EECAC);
@@ -7,6 +9,14 @@ $bg-color: #F7F7F7;
 $transition-speed: 0.3s;
 $ios-blue: #007AFF;
 $ios-gray: #E9E9EB;
+
+// Glassmorphism Variables
+$glass-blur: 12px;
+$glass-blur-heavy: 20px;
+$glass-blur-light: 8px;
+$glass-border-width: 1px;
+$glass-shadow-light: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+$glass-shadow-dark: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
 // Mixins
 @mixin flex-center {
@@ -19,6 +29,79 @@ $ios-gray: #E9E9EB;
   transition: all $transition-speed ease-in-out;
   &:hover {
     transform: translateY(-4px);
+  }
+}
+
+// Glassmorphism Mixins
+@mixin glass-effect($blur: $glass-blur, $opacity: 0.7) {
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  background: rgba(255, 255, 255, $opacity);
+  border: $glass-border-width solid rgba(255, 255, 255, 0.18);
+  box-shadow: $glass-shadow-light;
+
+  :root.dark & {
+    background: rgba(31, 41, 55, $opacity);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: $glass-shadow-dark;
+  }
+}
+
+@mixin glass-card {
+  @include glass-effect();
+  border-radius: 1rem;
+  transition: all $transition-speed cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    backdrop-filter: blur($glass-blur-heavy);
+    -webkit-backdrop-filter: blur($glass-blur-heavy);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.2);
+
+    :root.dark & {
+      box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+@mixin glass-button {
+  @include glass-effect($glass-blur-light, 0.6);
+  border-radius: 9999px;
+  transition: all $transition-speed ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    backdrop-filter: blur($glass-blur);
+    -webkit-backdrop-filter: blur($glass-blur);
+    transform: translateY(-2px) scale(1.02);
+
+    &::before {
+      left: 100%;
+    }
+  }
+}
+
+@mixin frosted-glass {
+  backdrop-filter: blur($glass-blur-heavy) saturate(180%);
+  -webkit-backdrop-filter: blur($glass-blur-heavy) saturate(180%);
+  background: rgba(255, 255, 255, 0.85);
+  border: $glass-border-width solid rgba(255, 255, 255, 0.25);
+
+  :root.dark & {
+    background: rgba(17, 24, 39, 0.85);
+    border-color: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -69,24 +152,69 @@ body {
   position: relative;
 }
 
-// Toggle buttons
-.toggle-button {
-  @include flex-center;
-  width: 40px;
-  height: 40px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: var(--bg-tertiary);
-  color: var(--text-secondary);
-  
-  &:hover {
-    background: var(--border-color);
+// Glassmorphism Classes
+.glass {
+  @include glass-effect();
+}
+
+.glass-card {
+  @include glass-card;
+}
+
+.glass-button {
+  @include glass-button;
+}
+
+.glass-heavy {
+  @include glass-effect($glass-blur-heavy, 0.8);
+}
+
+.glass-light {
+  @include glass-effect($glass-blur-light, 0.5);
+}
+
+.frosted-glass {
+  @include frosted-glass;
+}
+
+// Glass Navbar
+.glass-navbar {
+  @include frosted-glass;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  transition: all $transition-speed ease;
+}
+
+// Glass Modal/Window
+.glass-modal {
+  @include glass-effect($glass-blur-heavy, 0.95);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+  .modal-header {
+    @include glass-effect($glass-blur-light, 0.5);
+    border-bottom: $glass-border-width solid rgba(255, 255, 255, 0.1);
   }
 }
 
-// Navigation progress
+// Toggle buttons with glass effect
+.toggle-button {
+  @include glass-button;
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+// Navigation progress with glassmorphism
 .nav-progress {
+  @include glass-effect($glass-blur, 0.8);
   position: fixed;
   right: 2rem;
   top: 50%;
@@ -97,9 +225,6 @@ body {
   gap: 0.5rem;
   padding: 0.75rem;
   border-radius: 1rem;
-  background: var(--bg-secondary);
-  box-shadow: 0 4px 6px var(--shadow-color);
-  backdrop-filter: blur(8px);
   
   // 모바일 화면에서 숨김
   @media (max-width: 768px) {
@@ -228,26 +353,27 @@ body {
   }
 }
 
-// Message styles
+// Message styles with glassmorphism
 .message-window {
-  background: var(--bg-secondary);
+  @include glass-effect($glass-blur-heavy, 0.9);
   max-width: 42rem;
   margin: 0 auto;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px var(--shadow-color);
-  
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
   .window-header {
-    background: var(--bg-tertiary);
+    @include glass-effect($glass-blur-light, 0.6);
     color: var(--text-primary);
     height: 3rem;
     display: flex;
     align-items: center;
     padding: 0 1rem;
+    border-bottom: $glass-border-width solid rgba(255, 255, 255, 0.1);
   }
-  
+
   .window-content {
-    background: var(--bg-secondary);
+    background: rgba(255, 255, 255, 0.02);
     padding: 1.5rem;
     min-height: 280px;
     max-height: 400px;
@@ -325,23 +451,18 @@ body {
 }
 
 .time-header {
-  color: var(--text-secondary);
-  background: var(--bg-tertiary);
-  @apply text-xs text-gray-500 bg-[#F2F2F7] px-3 py-1 rounded-full mb-6;
-  
+  @apply text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full mb-6;
+
   :root.dark & {
-    @apply text-gray-400 bg-[#2C2C2E];
+    @apply text-gray-400 bg-gray-800;
   }
 }
 
-// Custom components
+// Custom components with glassmorphism
 .project-card {
+  @include glass-card;
   position: relative;
   overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px var(--shadow-color);
-  @include hover-effect;
-  background: var(--bg-secondary);
   color: var(--text-primary);
   
   .project-image {
@@ -380,33 +501,12 @@ body {
 }
 
 .tech-tag {
-  backdrop-filter: blur(5px);
+  @include glass-button;
   padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
-  @include hover-effect;
-  background: var(--bg-secondary);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-  
-  &:hover::before {
-    left: 100%;
-  }
-  
+
   &:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -433,17 +533,12 @@ body {
 }
 
 .skill-card {
-  border-radius: 1rem;
+  @include glass-card;
   padding: 2rem;
-  @include hover-effect;
-  transition: all 0.3s ease;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
   color: var(--text-primary);
-  
+
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px var(--shadow-color);
   }
 }
 

@@ -38,7 +38,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, delay }) => {
       }}
       className={`flex justify-end ${message.length < 15 ? 'mt-1 mb-2' : 'mt-1.5 mb-2'} sm:mb-4`}
     >
-      <div className={`message-bubble ${getMaxWidth(message.length)} ${getPadding(message.length)} relative overflow-hidden`}>
+      <div className={`message-bubble glass-heavy ${getMaxWidth(message.length)} ${getPadding(message.length)} relative overflow-hidden`}>
         {/* Subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-[18px]"></div>
         

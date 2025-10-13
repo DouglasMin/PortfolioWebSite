@@ -90,9 +90,9 @@ const Awards: React.FC = () => {
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-300" />
               
-              <div className="relative p-4 sm:p-6 bg-[var(--bg-secondary)] rounded-lg">
+              <div className="relative p-4 sm:p-6 glass-card rounded-lg">
                 {award.link && (
-                  <div className="absolute inset-0 bg-black/80 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 glass-heavy rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-md">
                     <a
                       href={award.link.url}
                       target="_blank"

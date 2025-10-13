@@ -42,7 +42,7 @@ const Certifications: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {certifications.map((cert, index) => (
           <ScrollReveal key={index} delay={index * 200}>
-            <div className="p-4 sm:p-6 rounded-lg bg-[var(--bg-secondary)] hover:transform hover:-translate-y-1 transition-transform duration-300 shadow-lg">
+            <div className="p-4 sm:p-6 rounded-lg glass-card hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold mb-2 gradient-1">{cert.name[currentLanguage]}</h3>

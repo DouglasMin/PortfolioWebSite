@@ -21,7 +21,7 @@ const MacWindow: React.FC<MacWindowProps> = ({ children, title = 'Messages' }) =
           {title}
         </div>
       </div>
-      
+
       {/* Content Area */}
       <div className="window-content p-3 sm:p-6 bg-[var(--bg-secondary)] rounded-b-lg">
         <div className="overflow-hidden">

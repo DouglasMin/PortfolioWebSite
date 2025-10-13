@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Tailwind v4 Theme Configuration */
+@theme {
+  --font-display: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+
+  --color-gradient-1: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+  --color-gradient-2: linear-gradient(135deg, #A8E6CF, #3EECAC);
+  --color-gradient-3: linear-gradient(135deg, #FFD93D, #FF6B6B);
+
+  --color-ios-blue: #007AFF;
+  --color-ios-blue-dark: #0A84FF;
+  --color-ios-gray: #E9E9EB;
+
+  /* Mac Window Colors */
+  --color-mac-red: #ff5f57;
+  --color-mac-red-border: #e0443e;
+  --color-mac-yellow: #febc2e;
+  --color-mac-yellow-border: #d4a02c;
+  --color-mac-green: #28c840;
+  --color-mac-green-border: #24aa36;
+
+  /* LinkedIn Blue */
+  --color-linkedin: #0077B5;
+
+  /* Time Header Colors */
+  --color-time-header-light: #F2F2F7;
+  --color-time-header-dark: #2C2C2E;
+
+  --animation-transition-speed: 0.3s;
+  --animation-ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --animation-ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+}

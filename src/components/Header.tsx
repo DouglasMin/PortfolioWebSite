@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm">
+    <header className="fixed top-0 w-full glass-navbar z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="text-xl font-bold text-[var(--text-primary)]">

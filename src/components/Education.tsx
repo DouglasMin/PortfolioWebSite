@@ -43,7 +43,7 @@ const Education: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4">
         {educationItems.map((item, index) => (
           <ScrollReveal key={index} delay={index * 200}>
-            <div className="mb-8 p-6 rounded-lg bg-[var(--bg-secondary)] hover:transform hover:-translate-y-1 transition-transform duration-300 shadow-lg">
+            <div className="mb-8 p-6 rounded-lg glass-card hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
               <h3 className="text-xl font-bold mb-2 gradient-1">{item.school[currentLanguage]}</h3>
               <p className="text-[var(--text-secondary)] font-medium mb-2">{item.degree[currentLanguage]}</p>
               <p className="text-sm text-[var(--text-secondary)] mb-3">{item.period}</p>
