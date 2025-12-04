@@ -29,6 +29,7 @@ import Experience from '../components/Experience';
 import Awards from '../components/Awards';
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
+import NativeAd from '../components/NativeAd';
 
 
 
@@ -189,6 +190,9 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* Native Ad Section */}
+      <NativeAd />
 
       {/* Experience Section */}
       <Experience />
