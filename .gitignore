@@ -11,6 +11,17 @@ node_modules
 dist
 dist-ssr
 *.local
+public/blog
+.env.local
+.terraform/
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
 # Editor directories and files
 .vscode/*

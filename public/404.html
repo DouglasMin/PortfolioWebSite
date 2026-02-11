@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      (function () {
+        var redirectKey = '__portfolio_spa_redirect__';
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        sessionStorage.setItem(redirectKey, pathname + search + hash);
+        window.location.replace('/');
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

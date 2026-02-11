@@ -294,7 +294,7 @@ const Experience: React.FC = () => {
       </div>
 
       {/* Project Experience Section */}
-      <div className="max-w-6xl mx-auto px-4">
+      <div id="projects" className="max-w-6xl mx-auto px-4">
         <ScrollReveal>
           <h3 className="text-2xl font-bold text-center mb-8 gradient-3 flex items-center justify-center">
             <MapPin className="w-6 h-6 mr-2" />

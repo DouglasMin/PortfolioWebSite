@@ -5,6 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dongik Min's Portfolio</title>
+    <script type="text/javascript">
+      (function () {
+        var isLocalhost =
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          window.location.hostname === '[::1]';
+
+        if (isLocalhost) {
+          return;
+        }
+
+        var redirectKey = '__portfolio_spa_redirect__';
+        var redirect = sessionStorage.getItem(redirectKey);
+
+        if (redirect && redirect.charAt(0) === '/' && redirect.slice(0, 2) !== '//') {
+          sessionStorage.removeItem(redirectKey);
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

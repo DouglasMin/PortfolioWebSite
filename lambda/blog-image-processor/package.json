@@ -1,0 +1,15 @@
+{
+  "name": "blog-image-processor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "S3-triggered Lambda image processor for Notion blog assets",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.699.0",
+    "sharp": "^0.33.5"
+  }
+}

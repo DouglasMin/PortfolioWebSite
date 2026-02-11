@@ -1,0 +1,12 @@
+aws_profile            = "dongik2"
+aws_region             = "ap-northeast-2"
+aws_account_id         = "863518440691"
+environment            = "dev"
+lambda_image_tag       = "lambda-v1"
+lambda_timeout_seconds = 30
+lambda_memory_mb       = 1024
+lambda_architecture    = "arm64"
+deploy_lambda          = true
+originals_prefix       = "notion-originals/"
+image_target_widths    = "640"
+cloudfront_price_class = "PriceClass_200"

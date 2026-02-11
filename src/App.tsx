@@ -1,20 +1,50 @@
 import React, { useEffect } from 'react';
 import { Sun, Moon, Languages } from 'lucide-react';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import { useLanguage } from './contexts/LanguageContext';
 import { useTheme } from './contexts/ThemeContext';
 import Home from './pages/Home';
+import BlogList from './pages/BlogList';
+import BlogPostPage from './pages/BlogPost';
+import Header from './components/Header';
 import LikeVisitCounter from './components/LikeVisitCounter';
 import './styles/tailwind.css';
 import './styles/main.scss';
 
 type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects';
+const NAV_SECTIONS: NavSection[] = ['home', 'skills', 'experience', 'awards', 'education', 'certifications', 'projects'];
 
 function App() {
   const { toggleLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
-  const sections: NavSection[] = ['home', 'skills', 'experience', 'awards', 'education', 'certifications', 'projects'];
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    if (!isHome || !location.hash) {
+      return;
+    }
+
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    if (!targetId) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [isHome, location.hash]);
   
   useEffect(() => {
+    if (!isHome) {
+      return;
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -20% 0px',
@@ -42,7 +72,7 @@ function App() {
 
     // Add a small delay to ensure DOM is fully rendered
     const timer = setTimeout(() => {
-      sections.forEach((section) => {
+      NAV_SECTIONS.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
           observer.observe(element);
@@ -63,7 +93,7 @@ function App() {
       observer.disconnect();
       clearTimeout(timer);
     };
-  }, [sections]);
+  }, [isHome]);
 
   const handleProgressClick = (section: NavSection) => {
     const element = document.getElementById(section);
@@ -74,8 +104,15 @@ function App() {
 
   return (
     <div className="min-h-screen">
-      {/* Theme and Language Toggles */}
-      <div className="fixed top-4 right-4 flex items-center space-x-4 z-50">
+      <Header />
+      {/* Theme, Language, and Blog Navigation */}
+      <div className="site-utility-dock">
+        <Link
+          to={isHome ? '/blog' : '/'}
+          className="glass-button px-4 py-2 text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+        >
+          {isHome ? t('nav.blog') : t('nav.home')}
+        </Link>
         <button
           onClick={toggleLanguage}
           className="toggle-button"
@@ -97,20 +134,26 @@ function App() {
       </div>
 
       {/* Navigation Progress */}
-      <div className="nav-progress">
-        {sections.map((section) => (
-          <div
-            key={section}
-            className="progress-item"
-            data-section={section}
-            data-label={t(`nav.${section}`)}
-            onClick={() => handleProgressClick(section)}
-          />
-        ))}
-      </div>
+      {isHome && (
+        <div className="nav-progress">
+          {NAV_SECTIONS.map((section) => (
+            <div
+              key={section}
+              className="progress-item"
+              data-section={section}
+              data-label={t(`nav.${section}`)}
+              onClick={() => handleProgressClick(section)}
+            />
+          ))}
+        </div>
+      )}
 
-      <main>
-        <Home />
+      <main className="pt-8 md:pt-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+        </Routes>
       </main>
 
       {/* Like and Visit Counter */}

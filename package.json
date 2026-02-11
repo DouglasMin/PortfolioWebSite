@@ -7,9 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:blog": "node scripts/notion-sync.js",
+    "sync:blog:local": "node --env-file .env.local scripts/notion-sync.js",
+    "build:blog": "npm run sync:blog && npm run build"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "framer-motion": "^11.0.8",
     "hyphenation.en-us": "^0.2.1",
     "hypher": "^0.2.5",
@@ -22,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@tailwindcss/vite": "^4.1.0",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -34,7 +39,6 @@
     "postcss": "^8.4.35",
     "sass": "^1.71.1",
     "tailwindcss": "^4.1.0",
-    "@tailwindcss/vite": "^4.1.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"

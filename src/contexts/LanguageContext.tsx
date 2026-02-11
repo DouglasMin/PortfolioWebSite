@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 type Language = 'ko' | 'en';
 
 // 네비게이션 섹션에 있는 모든 가능한 값들을 유니온 타입으로 정의
-type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects' | 'contact';
+type NavSection = 'home' | 'skills' | 'experience' | 'awards' | 'education' | 'certifications' | 'projects' | 'contact' | 'blog';
 
 // 모든 가능한 번역 키를 정의
 type TranslationKey =
@@ -51,7 +51,15 @@ type TranslationKey =
   | 'intro.name'
   | 'intro.welcome'
   | 'intro.role'
-  | 'intro.passion';
+  | 'intro.passion'
+  | 'blog.label'
+  | 'blog.title'
+  | 'blog.subtitle'
+  | 'blog.readMore'
+  | 'blog.loading'
+  | 'blog.error'
+  | 'blog.empty'
+  | 'blog.back';
 
 // 번역 객체의 타입을 정의
 type TranslationRecord = Record<TranslationKey, string>;
@@ -73,10 +81,11 @@ const translations: Record<Language, TranslationRecord> = {
     'nav.certifications': '자격증',
     'nav.projects': '프로젝트',
     'nav.contact': '연락처',
+    'nav.blog': '블로그',
 
     // Hero Section
     'hero.greeting': '안녕하세요 👋',
-    'hero.name': '저는 민동익입니다',
+    'hero.name': "Min's Code Ledger",
     'hero.role.1': '풀스택 개발자입니다',
     'hero.role.2': '데브옵스 엔지니어입니다',
     'hero.role.3': '클라우드 아키텍트입니다',
@@ -125,10 +134,20 @@ const translations: Record<Language, TranslationRecord> = {
 
     // Intro Section
     'intro.greeting': '안녕하세요 👋',
-    'intro.name': '저는 민동익입니다',
+    'intro.name': "Min's Code Ledger",
     'intro.welcome': '제 포트폴리오에 오신 것을 환영합니다',
     'intro.role': '풀스택 개발자이자 클라우드 네이티브 엔지니어입니다',
-    'intro.passion': '최신 기술 기반의 혁신적인 서비스 구축에 열정이 있습니다'
+    'intro.passion': '최신 기술 기반의 혁신적인 서비스 구축에 열정이 있습니다',
+
+    // Blog
+    'blog.label': "Min's Code Ledger",
+    'blog.title': "Min's Tech Blog & Portfolio",
+    'blog.subtitle': '최신 기술 기반 블로그와 프로젝트 로그를 작성합니다.',
+    'blog.readMore': '읽어보기',
+    'blog.loading': '블로그 글을 불러오는 중입니다.',
+    'blog.error': '블로그를 불러오지 못했습니다.',
+    'blog.empty': '아직 게시된 글이 없습니다.',
+    'blog.back': '블로그 목록으로'
   },
   en: {
     // Navigation
@@ -140,6 +159,7 @@ const translations: Record<Language, TranslationRecord> = {
     'nav.certifications': 'Certifications',
     'nav.projects': 'Projects',
     'nav.contact': 'Contact',
+    'nav.blog': 'Blog',
 
     // Hero Section
     'hero.greeting': 'Hi there 👋',
@@ -195,7 +215,17 @@ const translations: Record<Language, TranslationRecord> = {
     'intro.name': "I'm Dongik Min",
     'intro.welcome': 'Welcome to my portfolio',
     'intro.role': 'Full Stack Developer & Cloud Native Engineer',
-    'intro.passion': 'Passionate about building innovative services with cutting-edge technologies'
+    'intro.passion': 'Passionate about building innovative services with cutting-edge technologies',
+
+    // Blog
+    'blog.label': "Min's Code Ledger",
+    'blog.title': "Min's Tech Blog & Portfolio",
+    'blog.subtitle': 'Posts synced automatically from Notion.',
+    'blog.readMore': 'Read more',
+    'blog.loading': 'Loading posts…',
+    'blog.error': 'Unable to load the blog.',
+    'blog.empty': 'No posts published yet.',
+    'blog.back': 'Back to blog'
   }
 };
 
